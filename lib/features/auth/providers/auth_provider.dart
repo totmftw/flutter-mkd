@@ -1,27 +1,23 @@
+// Complete replacement for auth_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../models/user_model.dart';
-import '../../../core/config/supabase_config.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_mkd/core/config/supabase_config.dart';
 
+final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<User?>>((ref) {
+  return AuthNotifier();
+});
 
-class AuthProvider {
-  // Define your AuthProvider class here
-
-class AuthNotifier extends StateNotifier<AsyncValue<UserModel?>> {
+class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
   AuthNotifier() : super(const AsyncValue.loading()) {
     _initialize();
   }
 
   Future<void> _initialize() async {
-    final currentUser = SupabaseConfig.currentUser;
-    if (currentUser != null) {
-      try {
-        final userData = await SupabaseConfig.getUserData(currentUser.id);
-        state = AsyncValue.data(UserModel.fromJson(userData));
-      } catch (e) {
-        state = AsyncValue.error(e, StackTrace.current);
-      }
-    } else {
-      state = const AsyncValue.data(null);
+    try {
+      final user = Supabase.instance.client.auth.currentUser;
+      state = AsyncValue.data(user);
+    } catch (error, stackTrace) {
+      state = AsyncValue.error(error, stackTrace);
     }
   }
 
@@ -31,63 +27,44 @@ class AuthNotifier extends StateNotifier<AsyncValue<UserModel?>> {
   }) async {
     try {
       state = const AsyncValue.loading();
-      final response = await SupabaseConfig.client.auth.signInWithPassword(
+      final response = await Supabase.instance.client.auth.signInWithPassword(
         email: email,
         password: password,
       );
-      
-      if (response.user != null) {
-        final userData = await SupabaseConfig.getUserData(response.user!.id);
-        state = AsyncValue.data(UserModel.fromJson(userData));
-      }
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+      state = AsyncValue.data(response.user);
+    } catch (error, stackTrace) {
+      state = AsyncValue.error(error, stackTrace);
     }
   }
 
   Future<void> signUp({
     required String email,
     required String password,
-    required String fullName,
   }) async {
     try {
       state = const AsyncValue.loading();
-      final response = await SupabaseConfig.client.auth.signUp(
+      final response = await Supabase.instance.client.auth.signUp(
         email: email,
         password: password,
-        data: {'full_name': fullName},
       );
-      
-      if (response.user != null) {
-        await SupabaseConfig.client.from(SupabaseConfig.usersTable).insert({
-          'id': response.user!.id,
-          'email': email,
-          'full_name': fullName,
-          'created_at': DateTime.now().toIso8601String(),
-        });
-        
-        final userData = await SupabaseConfig.getUserData(response.user!.id);
-        state = AsyncValue.data(UserModel.fromJson(userData));
-      }
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+      state = AsyncValue.data(response.user);
+    } catch (error, stackTrace) {
+      state = AsyncValue.error(error, stackTrace);
     }
   }
 
   Future<void> signOut() async {
     try {
-      await SupabaseConfig.client.auth.signOut();
+      state = const AsyncValue.loading();
+      await Supabase.instance.client.auth.signOut();
       state = const AsyncValue.data(null);
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (error, stackTrace) {
+      state = AsyncValue.error(error, stackTrace);
     }
   }
 }
+final authProvider = Provider((ref) => AuthProvider());
+
+class AuthProvider {
+  // Define your AuthProvider class here
 }
-final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<UserModel?>>((ref) {
-  return AuthNotifier();
-});
-
-
-final authProvider1 = Provider((ref) => AuthProvider());
-

@@ -1,25 +1,69 @@
 [{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
-		"value": "uri_does_not_exist",
+		"value": "undefined_getter",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/uri_does_not_exist",
+			"path": "/diagnostics/undefined_getter",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "Target of URI doesn't exist: 'package:intl/intl.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"message": "The getter 'supabase' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'supabase', correcting the name to the name of an existing getter, or defining a getter or field named 'supabase'.",
 	"source": "dart",
-	"startLineNumber": 1,
-	"startColumn": 8,
-	"endLineNumber": 1,
-	"endColumn": 32
+	"startLineNumber": 10,
+	"startColumn": 36,
+	"endLineNumber": 10,
+	"endColumn": 44
 },{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "class_in_class",
+	"severity": 8,
+	"message": "Classes can't be declared inside other classes.\nTry moving the class to the top-level.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 1,
+	"endLineNumber": 9,
+	"endColumn": 6
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "expected_class_member",
+	"severity": 8,
+	"message": "Expected a class member.\nTry placing this code inside a class member.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 20,
+	"endLineNumber": 9,
+	"endColumn": 27
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "missing_method_parameters",
+	"severity": 8,
+	"message": "Methods must have an explicit list of parameters.\nTry adding a parameter list.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 28,
+	"endLineNumber": 9,
+	"endColumn": 41
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "expected_token",
+	"severity": 8,
+	"message": "Expected to find '>'.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 42,
+	"endLineNumber": 9,
+	"endColumn": 52
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
 		"value": "undefined_method",
 		"target": {
@@ -30,101 +74,544 @@
 		}
 	},
 	"severity": 8,
-	"message": "The method 'DateFormat' isn't defined for the type 'DateFormatter'.\nTry correcting the name to the name of an existing method, or defining a method named 'DateFormat'.",
+	"message": "The method 'AuthNotifier' isn't defined for the type 'AuthProvider'.\nTry correcting the name to the name of an existing method, or defining a method named 'AuthNotifier'.",
 	"source": "dart",
-	"startLineNumber": 5,
-	"startColumn": 12,
-	"endLineNumber": 5,
-	"endColumn": 22
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "depend_on_referenced_packages",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/depend_on_referenced_packages",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 2,
-	"message": "The imported package 'intl' isn't a dependency of the importing package.\nTry adding a dependency for 'intl' in the 'pubspec.yaml' file.",
-	"source": "dart",
-	"startLineNumber": 1,
-	"startColumn": 8,
-	"endLineNumber": 1,
-	"endColumn": 32
+	"startLineNumber": 10,
+	"startColumn": 3,
+	"endLineNumber": 10,
+	"endColumn": 15
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "expected_token",
+	"severity": 8,
+	"message": "Expected to find ';'.",
+	"source": "dart",
+	"startLineNumber": 10,
+	"startColumn": 16,
+	"endLineNumber": 10,
+	"endColumn": 17
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "missing_identifier",
+	"severity": 8,
+	"message": "Expected an identifier.",
+	"source": "dart",
+	"startLineNumber": 10,
+	"startColumn": 18,
+	"endLineNumber": 10,
+	"endColumn": 19
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "unexpected_token",
+	"severity": 8,
+	"message": "Unexpected text ';'.\nTry removing the text.",
+	"source": "dart",
+	"startLineNumber": 10,
+	"startColumn": 18,
+	"endLineNumber": 10,
+	"endColumn": 19
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
-		"value": "undefined_getter",
+		"value": "invocation_of_non_function_expression",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/undefined_getter",
+			"path": "/diagnostics/invocation_of_non_function_expression",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "The getter 'usersTable' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'usersTable', correcting the name to the name of an existing getter, or defining a getter or field named 'usersTable'.",
+	"message": "The expression doesn't evaluate to a function, so it can't be invoked.",
 	"source": "dart",
-	"startLineNumber": 18,
-	"startColumn": 34,
-	"endLineNumber": 18,
-	"endColumn": 44
+	"startLineNumber": 10,
+	"startColumn": 20,
+	"endLineNumber": 10,
+	"endColumn": 25
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
-		"value": "undefined_getter",
+		"value": "prefix_shadowed_by_local_declaration",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/undefined_getter",
+			"path": "/diagnostics/prefix_shadowed_by_local_declaration",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "The getter 'usersTable' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'usersTable', correcting the name to the name of an existing getter, or defining a getter or field named 'usersTable'.",
+	"message": "The prefix 'AsyncValue' can't be used here because it's shadowed by a local declaration.\nTry renaming either the prefix or the local declaration.",
 	"source": "dart",
-	"startLineNumber": 43,
-	"startColumn": 34,
-	"endLineNumber": 43,
-	"endColumn": 44
+	"startLineNumber": 10,
+	"startColumn": 32,
+	"endLineNumber": 10,
+	"endColumn": 42
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": "expected_token",
+	"severity": 8,
+	"message": "Expected to find ';'.",
+	"source": "dart",
+	"startLineNumber": 10,
+	"startColumn": 52,
+	"endLineNumber": 10,
+	"endColumn": 53
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
-		"value": "duplicate_definition",
+		"value": "referenced_before_declaration",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
+			"path": "/diagnostics/referenced_before_declaration",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "The name 'authProvider' is already defined.\nTry renaming one of the declarations.",
+	"message": "Local variable '_initialize' can't be referenced before it is declared.\nTry moving the declaration to before the first use, or renaming the local variable so that it doesn't hide a name from an enclosing scope.",
 	"source": "dart",
-	"startLineNumber": 72,
-	"startColumn": 7,
-	"endLineNumber": 72,
-	"endColumn": 19,
+	"startLineNumber": 11,
+	"startColumn": 5,
+	"endLineNumber": 11,
+	"endColumn": 16,
 	"relatedInformation": [
 		{
-			"startLineNumber": 64,
-			"startColumn": 7,
-			"endLineNumber": 64,
-			"endColumn": 19,
-			"message": "The first definition of this name.",
+			"startLineNumber": 14,
+			"startColumn": 16,
+			"endLineNumber": 14,
+			"endColumn": 27,
+			"message": "The declaration of '_initialize' is here.",
 			"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart"
 		}
 	]
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 19,
+	"startColumn": 9,
+	"endLineNumber": 19,
+	"endColumn": 14
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'data' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'data'.",
+	"source": "dart",
+	"startLineNumber": 19,
+	"startColumn": 28,
+	"endLineNumber": 19,
+	"endColumn": 32
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 21,
+	"startColumn": 9,
+	"endLineNumber": 21,
+	"endColumn": 14
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'error' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'error'.",
+	"source": "dart",
+	"startLineNumber": 21,
+	"startColumn": 28,
+	"endLineNumber": 21,
+	"endColumn": 33
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 24,
+	"startColumn": 7,
+	"endLineNumber": 24,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "prefix_shadowed_by_local_declaration",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/prefix_shadowed_by_local_declaration",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The prefix 'AsyncValue' can't be used here because it's shadowed by a local declaration.\nTry renaming either the prefix or the local declaration.",
+	"source": "dart",
+	"startLineNumber": 24,
+	"startColumn": 21,
+	"endLineNumber": 24,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 33,
+	"startColumn": 7,
+	"endLineNumber": 33,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "prefix_shadowed_by_local_declaration",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/prefix_shadowed_by_local_declaration",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The prefix 'AsyncValue' can't be used here because it's shadowed by a local declaration.\nTry renaming either the prefix or the local declaration.",
+	"source": "dart",
+	"startLineNumber": 33,
+	"startColumn": 21,
+	"endLineNumber": 33,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 41,
+	"startColumn": 9,
+	"endLineNumber": 41,
+	"endColumn": 14
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'data' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'data'.",
+	"source": "dart",
+	"startLineNumber": 41,
+	"startColumn": 28,
+	"endLineNumber": 41,
+	"endColumn": 32
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 44,
+	"startColumn": 7,
+	"endLineNumber": 44,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'error' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'error'.",
+	"source": "dart",
+	"startLineNumber": 44,
+	"startColumn": 26,
+	"endLineNumber": 44,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 54,
+	"startColumn": 7,
+	"endLineNumber": 54,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "prefix_shadowed_by_local_declaration",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/prefix_shadowed_by_local_declaration",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The prefix 'AsyncValue' can't be used here because it's shadowed by a local declaration.\nTry renaming either the prefix or the local declaration.",
+	"source": "dart",
+	"startLineNumber": 54,
+	"startColumn": 21,
+	"endLineNumber": 54,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 70,
+	"startColumn": 9,
+	"endLineNumber": 70,
+	"endColumn": 14
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'data' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'data'.",
+	"source": "dart",
+	"startLineNumber": 70,
+	"startColumn": 28,
+	"endLineNumber": 70,
+	"endColumn": 32
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 73,
+	"startColumn": 7,
+	"endLineNumber": 73,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'error' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'error'.",
+	"source": "dart",
+	"startLineNumber": 73,
+	"startColumn": 26,
+	"endLineNumber": 73,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 80,
+	"startColumn": 7,
+	"endLineNumber": 80,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "prefix_shadowed_by_local_declaration",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/prefix_shadowed_by_local_declaration",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The prefix 'AsyncValue' can't be used here because it's shadowed by a local declaration.\nTry renaming either the prefix or the local declaration.",
+	"source": "dart",
+	"startLineNumber": 80,
+	"startColumn": 21,
+	"endLineNumber": 80,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'state'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 82,
+	"startColumn": 7,
+	"endLineNumber": 82,
+	"endColumn": 12
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_method",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_method",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The method 'error' isn't defined for the type 'Type'.\nTry correcting the name to the name of an existing method, or defining a method named 'error'.",
+	"source": "dart",
+	"startLineNumber": 82,
+	"startColumn": 26,
+	"endLineNumber": 82,
+	"endColumn": 31
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
 		"value": "non_type_as_type_argument",
 		"target": {
@@ -135,15 +622,15 @@
 		}
 	},
 	"severity": 8,
-	"message": "The name 'AuthProvider' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'AuthProvider'.",
+	"message": "The name 'AuthNotifier' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'AuthNotifier'.",
 	"source": "dart",
-	"startLineNumber": 72,
+	"startLineNumber": 87,
 	"startColumn": 44,
-	"endLineNumber": 72,
+	"endLineNumber": 87,
 	"endColumn": 56
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
 		"value": "undefined_function",
 		"target": {
@@ -154,32 +641,133 @@
 		}
 	},
 	"severity": 8,
-	"message": "The function 'AuthProvider' isn't defined.\nTry importing the library that defines 'AuthProvider', correcting the name to the name of an existing function, or defining a function named 'AuthProvider'.",
+	"message": "The function 'AuthNotifier' isn't defined.\nTry importing the library that defines 'AuthNotifier', correcting the name to the name of an existing function, or defining a function named 'AuthNotifier'.",
 	"source": "dart",
-	"startLineNumber": 73,
+	"startLineNumber": 88,
 	"startColumn": 10,
-	"endLineNumber": 73,
+	"endLineNumber": 88,
 	"endColumn": 22
 },{
-	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
 	"code": {
-		"value": "creation_with_non_type",
+		"value": "unused_element",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/creation_with_non_type",
+			"path": "/diagnostics/unused_element",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The declaration 'signIn' isn't referenced.\nTry removing the declaration of 'signIn'.",
+	"source": "dart",
+	"startLineNumber": 28,
+	"startColumn": 16,
+	"endLineNumber": 28,
+	"endColumn": 22
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "unused_element",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/unused_element",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The declaration 'signUp' isn't referenced.\nTry removing the declaration of 'signUp'.",
+	"source": "dart",
+	"startLineNumber": 48,
+	"startColumn": 16,
+	"endLineNumber": 48,
+	"endColumn": 22
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "unused_element",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/unused_element",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The declaration 'signOut' isn't referenced.\nTry removing the declaration of 'signOut'.",
+	"source": "dart",
+	"startLineNumber": 77,
+	"startColumn": 16,
+	"endLineNumber": 77,
+	"endColumn": 23
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "non_constant_identifier_names",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_constant_identifier_names",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 2,
+	"message": "The variable name 'StateNotifier' isn't a lowerCamelCase identifier.\nTry changing the name to follow the lowerCamelCase style.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 28,
+	"endLineNumber": 9,
+	"endColumn": 41
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "no_leading_underscores_for_local_identifiers",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/no_leading_underscores_for_local_identifiers",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 2,
+	"message": "The local variable '_initialize' starts with an underscore.\nTry renaming the variable to not start with an underscore.",
+	"source": "dart",
+	"startLineNumber": 14,
+	"startColumn": 16,
+	"endLineNumber": 14,
+	"endColumn": 27
+},{
+	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "The name 'LoginScreen' isn't a class.\nTry correcting the name to match an existing class.",
+	"message": "Undefined name 'AppRouter'.\nTry correcting the name to one that is defined, or defining the name.",
 	"source": "dart",
-	"startLineNumber": 35,
-	"startColumn": 19,
-	"endLineNumber": 35,
+	"startLineNumber": 43,
+	"startColumn": 21,
+	"endLineNumber": 43,
 	"endColumn": 30
 }]
+
+
+
+
+
+-Tree Structure
 
 ├───.dart_tool
 │   ├───dartpad
@@ -214,6 +802,9 @@
 │   │       └───profile
 │   └───gradle
 │       └───wrapper
+├───assets
+│   ├───icons
+│   └───images
 ├───AuxillaryFeatures
 │   └───Themes
 ├───ios
@@ -243,6 +834,11 @@
 │   │   │   ├───providers
 │   │   │   └───screens
 │   │   ├───dashboard
+│   │   │   ├───lib
+│   │   │   │   └───features
+│   │   │   │       └───dashboard
+│   │   │   │           └───screens
+│   │   │   └───screens
 │   │   ├───home
 │   │   │   └───screens
 │   │   └───transactions
@@ -274,11 +870,11 @@
 │   │           │   │   │   │       │   │   │       └───app_links_example
 │   │           │   │   │   │       │   │   └───io
 │   │           │   │   │   │       │   │       └───flutter
-│   │           │   │   │   │       │   │           └───plugins       
+│   │           │   │   │   │       │   │           └───plugins
 │   │           │   │   │   │       │   ├───kotlin
 │   │           │   │   │   │       │   │   └───com
 │   │           │   │   │   │       │   │       └───llfbandit
-│   │           │   │   │   │       │   │           └───example       
+│   │           │   │   │   │       │   │           └───example
 │   │           │   │   │   │       │   └───res
 │   │           │   │   │   │       │       ├───drawable
 │   │           │   │   │   │       │       ├───drawable-v21
@@ -341,6 +937,10 @@
 │   │           │   └───windows
 │   │           │       └───include
 │   │           │           └───app_links
+│   │           ├───flutter_secure_storage_linux
+│   │           │   └───linux
+│   │           │       └───include
+│   │           │           └───flutter_secure_storage_linux
 │   │           ├───gtk
 │   │           │   ├───example
 │   │           │   │   ├───lib
@@ -437,11 +1037,11 @@
     │           │   │   │   │       │   │   │       └───app_links_example
     │           │   │   │   │       │   │   └───io
     │           │   │   │   │       │   │       └───flutter
-    │           │   │   │   │       │   │           └───plugins       
+    │           │   │   │   │       │   │           └───plugins
     │           │   │   │   │       │   ├───kotlin
     │           │   │   │   │       │   │   └───com
     │           │   │   │   │       │   │       └───llfbandit
-    │           │   │   │   │       │   │           └───example       
+    │           │   │   │   │       │   │           └───example
     │           │   │   │   │       │   └───res
     │           │   │   │   │       │       ├───drawable
     │           │   │   │   │       │       ├───drawable-v21
@@ -504,6 +1104,20 @@
     │           │   └───windows
     │           │       └───include
     │           │           └───app_links
+    │           ├───flutter_secure_storage_windows
+    │           │   ├───example
+    │           │   │   ├───integration_test
+    │           │   │   ├───lib
+    │           │   │   └───windows
+    │           │   │       ├───flutter
+    │           │   │       └───runner
+    │           │   │           └───resources
+    │           │   ├───lib
+    │           │   │   └───src
+    │           │   ├───test
+    │           │   └───windows
+    │           │       └───include
+    │           │           └───flutter_secure_storage_windows
     │           ├───path_provider_windows
     │           │   ├───example
     │           │   │   ├───integration_test

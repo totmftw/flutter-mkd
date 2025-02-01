@@ -1,38 +1,63 @@
-// Complete replacement for auth_state.dart
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_mkd/core/config/supabase_config.dart';
 
-class SupabaseConfig {
-  static final client = Supabase.instance.client;
+class AuthState extends ConsumerStatefulWidget {
+  final Widget child;
+
+  const AuthState({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  AuthStateState createState() => AuthStateState();
 }
 
-abstract class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
+class AuthStateState extends ConsumerState<AuthState> {
+  late final Stream<AuthState> _authStateChanges;
+  bool _initialized = false;
+
   @override
-  void onUnauthenticated() {
+  void initState() {
+    super.initState();
+    _authStateChanges = Supabase.instance.client.auth.onAuthStateChange;
+    _initialize();
+  }
+
+  Future<void> _initialize() async {
     if (mounted) {
-      Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
+      setState(() {
+        _initialized = true;
+      });
     }
   }
 
   @override
-  void onAuthenticated(Session session) {
-    if (mounted) {
-      Navigator.of(context).pushNamedAndRemoveUntil('/home', (route) => false);
+  Widget build(BuildContext context) {
+    if (!_initialized) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
     }
-  }
 
-  @override
-  void onPasswordRecovery(Session session) {}
+    return StreamBuilder<AuthState>(
+      stream: _authStateChanges,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Center(
+            child: Text('An error occurred'),
+          );
+        }
 
-  @override
-  void onErrorAuthenticating(String message) {
-    context.showErrorSnackBar(message: message);
+        if (!snapshot.hasData) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        return widget.child;
+      },
+    );
   }
 }
-
-final authStateProvider = StreamProvider.autoDispose((ref) {
-  return SupabaseConfig.client.auth.onAuthStateChange.map((event) => event.session);
-});

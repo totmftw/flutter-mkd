@@ -4,6 +4,7 @@
     "dart.flutterSdkPath": "C:\\flutter",
     "dart.sdkPath": "C:\\flutter\\bin\\cache\\dart-sdk",
     "dart.lineLength": 80,
+    "dart.projectSearchDepth": 10,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "files.exclude": {

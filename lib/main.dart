@@ -16,20 +16,11 @@ class SupabaseConfig {
 
   static final SupabaseClient client = SupabaseClient(supabaseUrl, supabaseAnonKey);
 
-  static Future<void> initialize() async {
-    await Supabase.initialize(
-      url: supabaseUrl,
-      anonKey: supabaseAnonKey,
-      debug: false, // Set to true for development
-    );
-  }
-}
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  void main () async {
+    WidgetsFlutterBinding.ensureInitialized();
   
   await SupabaseConfig.initialize();
-
+  
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -37,18 +28,21 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends ConsumerWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = AppRouter();
+    
     return MaterialApp.router(
-      title: 'MKD App',
+      title: 'Your App Name',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routerConfig: AppRouter.router,
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
     );
   }
 }

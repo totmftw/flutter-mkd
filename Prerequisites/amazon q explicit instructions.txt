@@ -1,5 +1,5 @@
-i give eplicit permission to access my github repository 
+i give explicit open and access my github repository 
 https://github.com/totmftw/flutter-mkd
 
-all the local files are stored in this path
-C:\APp Projects\
+all the local files are stored in this path and you can open and access them
+C:\APp Projects\flutter-mkd\

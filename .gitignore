@@ -17,7 +17,9 @@ migrate_working_dir/
 .idea/
 
 # VS Code related
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -39,13 +41,13 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
 # Environment files
 .env
 .env.local
 .env.development
 .env.production
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release

@@ -1,6 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide Provider;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:logging/logging.dart';
+import 'package:gotrue/gotrue.dart' as gotrue;
 
 import '../../../core/config/supabase_config.dart';
 
@@ -64,10 +65,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
     });
   }
 
-  Future<void> signIn(String email, String password) async {
+  Future<AuthState> signInWithEmail({
+    required String email, 
+    required String password,
+  }) async {
     try {
       state = state.copyWith(status: AuthStatus.authenticating);
-      
+
       final response = await _client.auth.signInWithPassword(
         email: email,
         password: password,
@@ -78,23 +82,114 @@ class AuthNotifier extends StateNotifier<AuthState> {
           status: AuthStatus.authenticated,
           user: response.user,
         );
+        return state;
       } else {
-        throw Exception('Authentication failed');
+        state = state.copyWith(
+          status: AuthStatus.unauthenticated,
+          errorMessage: 'Authentication failed',
+        );
+        return state;
       }
     } on AuthException catch (e) {
-      _logger.warning('Sign-in error: ${e.message}');
+      _logger.severe('Authentication error: ${e.message}');
       state = state.copyWith(
         status: AuthStatus.error,
         errorMessage: e.message,
       );
-      rethrow;
+      return state;
     } catch (e) {
-      _logger.warning('Unexpected sign-in error: $e');
+      _logger.severe('Unexpected authentication error: $e');
       state = state.copyWith(
         status: AuthStatus.error,
         errorMessage: 'An unexpected error occurred',
       );
-      rethrow;
+      return state;
+    }
+  }
+
+  Future<AuthState> signInWithGoogle() async {
+    try {
+      state = state.copyWith(status: AuthStatus.authenticating);
+
+      // Initiate OAuth sign-in
+      await _client.auth.signInWithOAuth(
+        gotrue.Provider.google,
+        redirectTo: 'com.example.app://login-callback', // Replace with your app's URL scheme
+      );
+
+      // Retrieve the current session
+      final session = await _client.auth.refreshSession();
+      
+      if (session.session != null) {
+        state = state.copyWith(
+          status: AuthStatus.authenticated,
+          user: session.session?.user,
+        );
+        return state;
+      } else {
+        state = state.copyWith(
+          status: AuthStatus.unauthenticated,
+          errorMessage: 'Google Sign-In failed',
+        );
+        return state;
+      }
+    } on AuthException catch (e) {
+      _logger.severe('Google Sign-In error: ${e.message}');
+      state = state.copyWith(
+        status: AuthStatus.error,
+        errorMessage: e.message,
+      );
+      return state;
+    } catch (e) {
+      _logger.severe('Unexpected Google Sign-In error: $e');
+      state = state.copyWith(
+        status: AuthStatus.error,
+        errorMessage: 'An unexpected error occurred during Google Sign-In',
+      );
+      return state;
+    }
+  }
+
+  Future<AuthState> signInWithApple() async {
+    try {
+      state = state.copyWith(status: AuthStatus.authenticating);
+
+      // Initiate OAuth sign-in
+      await _client.auth.signInWithOAuth(
+        gotrue.Provider.apple,
+        redirectTo: 'com.example.app://login-callback', // Replace with your app's URL scheme
+      );
+
+      // Retrieve the current session
+      final session = await _client.auth.refreshSession();
+      
+      if (session.session != null) {
+        state = state.copyWith(
+          status: AuthStatus.authenticated,
+          user: session.session?.user,
+        );
+        return state;
+      } else {
+        state = state.copyWith(
+          status: AuthStatus.unauthenticated,
+          errorMessage: 'Apple Sign-In failed',
+        );
+        return state;
+      }
+    } on AuthException catch (e) {
+      _logger.severe('Apple Sign-In error: ${e.message}');
+      state = state.copyWith(
+        status: AuthStatus.error,
+        errorMessage: e.message,
+      );
+      return state;
+    } catch (e) {
+      _logger.severe('Unexpected Apple Sign-In error: $e');
+      state = state.copyWith(
+        status: AuthStatus.error,
+        errorMessage: 'An unexpected error occurred during Apple Sign-In',
+      );
+      return state;
     }
   }
 
@@ -106,7 +201,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         user: null,
       );
     } catch (e) {
-      _logger.warning('Sign-out error: $e');
+      _logger.severe('Sign out error: $e');
     }
   }
 
@@ -115,12 +210,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
       await _client.auth.resetPasswordForEmail(email);
       _logger.info('Password reset email sent');
     } catch (e) {
-      _logger.warning('Password reset error: $e');
+      _logger.severe('Password reset error: $e');
       rethrow;
     }
   }
-
-  bool get isAuthenticated => state.status == AuthStatus.authenticated;
 }
 
 final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {

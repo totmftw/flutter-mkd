@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -67,13 +66,12 @@ class _LoginForm extends ConsumerStatefulWidget {
 }
 
 class _LoginFormState extends ConsumerState<_LoginForm> {
-  final _logger = Logger('LoginForm');
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
   final _secureStorage = const FlutterSecureStorage();
-  
-  bool _isPasswordVisible = false;
+  final _logger = Logger('LoginFormState');
+
+  bool _isLoading = false;
   bool _rememberMe = false;
 
   @override
@@ -84,8 +82,8 @@ class _LoginFormState extends ConsumerState<_LoginForm> {
 
   Future<void> _loadSavedCredentials() async {
     try {
-      final email = await _secureStorage.read(key: 'user_email');
-      final password = await _secureStorage.read(key: 'user_password');
+      final email = await _secureStorage.read(key: 'email');
+      final password = await _secureStorage.read(key: 'password');
       
       if (email != null && password != null) {
         setState(() {
@@ -100,244 +98,171 @@ class _LoginFormState extends ConsumerState<_LoginForm> {
   }
 
   Future<void> _saveCredentials() async {
+    if (_rememberMe) {
+      await _secureStorage.write(key: 'email', value: _emailController.text);
+      await _secureStorage.write(key: 'password', value: _passwordController.text);
+    } else {
+      await _secureStorage.delete(key: 'email');
+      await _secureStorage.delete(key: 'password');
+    }
+  }
+
+  void _showErrorSnackBar(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: AppColors.error,
+      ),
+    );
+  }
+
+  void _navigateToDashboard() {
+    if (!mounted) return;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const DashboardPage()),
+    );
+  }
+
+  Future<void> _login() async {
+    if (!mounted) return;
+
+    setState(() => _isLoading = true);
+
     try {
-      if (_rememberMe) {
-        await _secureStorage.write(
-          key: 'user_email', 
-          value: _emailController.text.trim()
-        );
-        await _secureStorage.write(
-          key: 'user_password', 
-          value: _passwordController.text.trim()
-        );
+      final authNotifier = ref.read(authProvider.notifier);
+      final response = await authNotifier.signInWithEmail(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      if (!mounted) return;
+
+      if (response.status == AuthStatus.authenticated) {
+        await _saveCredentials();
+        _navigateToDashboard();
       } else {
-        await _secureStorage.delete(key: 'user_email');
-        await _secureStorage.delete(key: 'user_password');
+        _showErrorSnackBar(response.errorMessage ?? 'Login failed');
       }
     } catch (e) {
-      _logger.warning('Error saving credentials: $e');
-    }
-  }
-
-  void _login() async {
-    if (_formKey.currentState?.validate() ?? false) {
-      try {
-        // Save credentials if remember me is checked
-        await _saveCredentials();
-
-        final authNotifier = ref.read(authProvider.notifier);
-        await authNotifier.signIn(
-          _emailController.text.trim(), 
-          _passwordController.text.trim()
-        );
-
-        if (!mounted) return;
-
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const DashboardPage()),
-        );
-      } on AuthException catch (error) {
-        _logger.warning('Login failed: ${error.message}');
-        
-        if (!mounted) return;
-        
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(error.message),
-            backgroundColor: AppColors.error,
-          ),
-        );
-      } catch (error) {
-        _logger.warning('Unexpected login error: $error');
-        
-        if (!mounted) return;
-        
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('An unexpected error occurred'),
-            backgroundColor: AppColors.error,
-          ),
-        );
+      if (!mounted) return;
+      _logger.severe('Login error: $e');
+      _showErrorSnackBar('An unexpected error occurred: $e');
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
       }
     }
   }
 
-  void _forgotPassword() async {
-    final emailText = _emailController.text.trim();
-    
-    if (emailText.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter your email first'),
-          backgroundColor: AppColors.warning,
-        ),
-      );
-      return;
-    }
+  void _forgotPassword() {
+    showDialog(
+      context: context,
+      builder: (context) => ForgotPasswordDialog(
+        emailController: _emailController,
+        onPasswordResetRequested: _handlePasswordReset,
+      ),
+    );
+  }
 
+  Future<void> _handlePasswordReset(String email) async {
     try {
-      await Supabase.instance.client.auth.resetPasswordForEmail(emailText);
-      
+      if (!_isValidEmail(email)) {
+        _showErrorSnackBar('Please enter a valid email address');
+        return;
+      }
+
+      final authNotifier = ref.read(authProvider.notifier);
+      await authNotifier.resetPassword(email);
+
       if (!mounted) return;
-      
+
+      Navigator.of(context).pop(); // Close dialog
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Password reset email sent'),
+          content: Text('Password reset link sent to your email'),
           backgroundColor: AppColors.success,
         ),
       );
-    } catch (error) {
-      _logger.warning('Password reset error: $error');
-      
-      if (!mounted) return;
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Password reset failed: ${error.toString()}'),
-          backgroundColor: AppColors.error,
-        ),
-      );
+    } catch (e) {
+      _logger.severe('Password reset error: $e');
+      _showErrorSnackBar('Failed to send password reset link');
     }
+  }
+
+  bool _isValidEmail(String email) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'MKD Invoice Manager',
-            style: Theme.of(context).textTheme.displayLarge,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 30),
-
-          // Email Input
-          TextFormField(
-            controller: _emailController,
-            decoration: const InputDecoration(
-              labelText: 'Email Address',
-              prefixIcon: Icon(Icons.email, color: AppColors.primary),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Welcome Back',
+          style: Theme.of(context).textTheme.displayLarge,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 20),
+        TextField(
+          controller: _emailController,
+          decoration: InputDecoration(
+            labelText: 'Email',
+            prefixIcon: const Icon(Icons.email),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your email';
-              }
-              final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-              if (!emailRegex.hasMatch(value)) {
-                return 'Please enter a valid email';
-              }
-              return null;
-            },
-            keyboardType: TextInputType.emailAddress,
           ),
-          const SizedBox(height: 20),
-
-          // Password Input
-          TextFormField(
-            controller: _passwordController,
-            decoration: InputDecoration(
-              labelText: 'Password',
-              prefixIcon: const Icon(Icons.lock, color: AppColors.primary),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: AppColors.textLight,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _isPasswordVisible = !_isPasswordVisible;
-                  });
-                },
-              ),
+          keyboardType: TextInputType.emailAddress,
+        ),
+        const SizedBox(height: 15),
+        TextField(
+          controller: _passwordController,
+          decoration: InputDecoration(
+            labelText: 'Password',
+            prefixIcon: const Icon(Icons.lock),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-            obscureText: !_isPasswordVisible,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              }
-              return null;
-            },
           ),
-          const SizedBox(height: 20),
-
-          // Remember Me and Forgot Password
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Checkbox(
-                    value: _rememberMe,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _rememberMe = value ?? false;
-                      });
-                    },
-                    activeColor: AppColors.primary,
-                  ),
-                  const Text(
-                    'Remember Me',
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-              TextButton(
-                onPressed: _forgotPassword,
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: AppColors.primary),
+          obscureText: true,
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Checkbox(
+                  value: _rememberMe,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      _rememberMe = value ?? false;
+                    });
+                  },
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-
-          // Login Button
-          ElevatedButton(
-            onPressed: _login,
-            child: const Text('Login'),
-          ),
-          const SizedBox(height: 30),
-
-          // Social Login Divider
-          const Row(
-            children: [
-              Expanded(child: Divider(color: AppColors.border)),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text('Or continue with'),
-              ),
-              Expanded(child: Divider(color: AppColors.border)),
-            ],
-          ),
-          const SizedBox(height: 20),
-
-          // Social Login Buttons
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _SocialLoginButton(
-                icon: Icons.g_mobiledata,
-                color: Colors.red,
-              ),
-              SizedBox(width: 15),
-              _SocialLoginButton(
-                icon: Icons.apple,
-                color: Colors.black,
-              ),
-              SizedBox(width: 15),
-              _SocialLoginButton(
-                icon: Icons.facebook,
-                color: Colors.blue,
-              ),
-            ],
-          ),
-        ],
-      ),
+                const Text('Remember Me'),
+              ],
+            ),
+            TextButton(
+              onPressed: _forgotPassword,
+              child: const Text('Forgot Password?'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: _isLoading ? null : _login,
+          child: _isLoading 
+            ? const CircularProgressIndicator() 
+            : const Text('Login'),
+        ),
+        const SizedBox(height: 20),
+        const SocialLoginButton(),
+      ],
     );
   }
 
@@ -349,24 +274,187 @@ class _LoginFormState extends ConsumerState<_LoginForm> {
   }
 }
 
-class _SocialLoginButton extends StatelessWidget {
-  final IconData icon;
-  final Color color;
+class ForgotPasswordDialog extends StatefulWidget {
+  final TextEditingController emailController;
+  final Future<void> Function(String) onPasswordResetRequested;
 
-  const _SocialLoginButton({
-    required this.icon,
-    required this.color,
-  });
+  const ForgotPasswordDialog({
+    Key? key,
+    required this.emailController,
+    required this.onPasswordResetRequested,
+  }) : super(key: key);
+
+  @override
+  ForgotPasswordDialogState createState() => ForgotPasswordDialogState();
+}
+
+class ForgotPasswordDialogState extends State<ForgotPasswordDialog> {
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(icon, size: 40, color: color),
-      onPressed: null,
-      style: IconButton.styleFrom(
-        backgroundColor: color.withAlpha(50),
-        shape: const CircleBorder(),
+    return AlertDialog(
+      title: const Text('Forgot Password'),
+      content: TextField(
+        controller: widget.emailController,
+        decoration: const InputDecoration(
+          labelText: 'Email Address',
+          hintText: 'Enter your email',
+        ),
+        keyboardType: TextInputType.emailAddress,
       ),
+      actions: [
+        TextButton(
+          onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: _isLoading 
+            ? null 
+            : () async {
+                setState(() => _isLoading = true);
+                try {
+                  await widget.onPasswordResetRequested(
+                    widget.emailController.text.trim()
+                  );
+                } finally {
+                  if (mounted) {
+                    setState(() => _isLoading = false);
+                  }
+                }
+              },
+          child: _isLoading 
+            ? const CircularProgressIndicator() 
+            : const Text('Reset Password'),
+        ),
+      ],
+    );
+  }
+}
+
+class SocialLoginButton extends ConsumerStatefulWidget {
+  const SocialLoginButton({Key? key}) : super(key: key);
+
+  @override
+  SocialLoginButtonState createState() => SocialLoginButtonState();
+}
+
+class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
+  bool _isLoading = false;
+  final _logger = Logger('SocialLoginButtonState');
+
+  void _showErrorSnackBar(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: AppColors.error,
+      ),
+    );
+  }
+
+  void _navigateToDashboard() {
+    if (!mounted) return;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const DashboardPage()),
+    );
+  }
+
+  Future<void> _handleGoogleSignIn() async {
+    if (!mounted) return;
+
+    setState(() => _isLoading = true);
+    
+    try {
+      final authNotifier = ref.read(authProvider.notifier);
+      final response = await authNotifier.signInWithGoogle();
+
+      if (!mounted) return;
+
+      if (response.status == AuthStatus.authenticated) {
+        _navigateToDashboard();
+      } else {
+        _showErrorSnackBar(response.errorMessage ?? 'Google Sign-In failed');
+      }
+    } catch (e) {
+      _logger.severe('Google Sign-In error: $e');
+      _showErrorSnackBar('An unexpected error occurred during Google Sign-In');
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  Future<void> _handleAppleSignIn() async {
+    if (!mounted) return;
+
+    setState(() => _isLoading = true);
+    
+    try {
+      final authNotifier = ref.read(authProvider.notifier);
+      final response = await authNotifier.signInWithApple();
+
+      if (!mounted) return;
+
+      if (response.status == AuthStatus.authenticated) {
+        _navigateToDashboard();
+      } else {
+        _showErrorSnackBar(response.errorMessage ?? 'Apple Sign-In failed');
+      }
+    } catch (e) {
+      _logger.severe('Apple Sign-In error: $e');
+      _showErrorSnackBar('An unexpected error occurred during Apple Sign-In');
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Text('Or continue with'),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildSocialButton(
+              icon: Icons.g_mobiledata,
+              onPressed: _isLoading ? null : _handleGoogleSignIn,
+              isLoading: _isLoading,
+            ),
+            const SizedBox(width: 20),
+            _buildSocialButton(
+              icon: Icons.apple,
+              onPressed: _isLoading ? null : _handleAppleSignIn,
+              isLoading: _isLoading,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSocialButton({
+    required IconData icon, 
+    required VoidCallback? onPressed,
+    bool isLoading = false,
+  }) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        padding: const EdgeInsets.all(15),
+        shape: const CircleBorder(),
+        side: const BorderSide(color: Colors.grey, width: 1),
+      ),
+      child: isLoading 
+        ? const CircularProgressIndicator()
+        : Icon(icon, size: 30),
     );
   }
 }

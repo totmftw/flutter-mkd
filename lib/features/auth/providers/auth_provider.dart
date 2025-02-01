@@ -1,57 +1,42 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart' as riverpod;
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_mkd/core/config/supabase_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase/supabase.dart';
+import 'package:supabase_config/supabase_config.dart';
 
-final supabaseAuthProvider = riverpod.Provider((ref) => SupabaseConfig.client.auth);
-
-final authStateChangesProvider = riverpod.StreamProvider<AuthState>((ref) {
-  final auth = ref.watch(supabaseAuthProvider);
-  return auth.onAuthStateChange;
+final supabaseAuthProvider = Provider<SupabaseConfig>((ref) {
+  final supabaseUrl = 'https://your-supabase-url.supabase.co';
+  final supabaseKey = 'your-supabase-anon-key';
+  return SupabaseConfig(
+    url: supabaseUrl,
+    key: supabaseKey,
+  );
 });
 
-final currentUserProvider = riverpod.Provider<User?>((ref) {
-  final auth = ref.watch(supabaseAuthProvider);
+final authStateChangesProvider = StreamProvider<AuthState>((ref) {
+  final auth = ref.watch(supabaseAuthProvider).auth;
+  return auth.onAuthStateChange.map((event) {
+    if (event is AuthEvent) {
+      switch (event.type) {
+        case 'SIGNED_IN':
+          return AuthState(user: event.user);
+        case 'SIGNED_OUT':
+          return const AuthState(user: null);
+        default:
+          return const AuthState(user: null);
+      }
+    }
+    return const AuthState(user: null);
+  });
+});
+
+final currentUserProvider = Provider<User?>((ref) {
+  final auth = ref.watch(supabaseAuthProvider).auth;
   return auth.currentUser;
 });
 
-final isAuthenticatedProvider = riverpod.Provider<bool>((ref) {
-  final user = ref.watch(currentUserProvider);
-  return user != null;
-});
+class AuthState {
+  final User? user;
 
-final authStateProvider = StreamProvider.autoDispose((ref) {
-  return SupabaseConfig.client.auth.onAuthStateChange
-      .map((event) => event.session);
-});
+  const AuthState({this.user});
 
-class AuthState extends ConsumerStatefulWidget {
-  final Widget child;
-
-  const AuthState({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
-
-  @override
-  AuthStateState createState() => AuthStateState();
-}
-
-class AuthStateState extends ConsumerState<AuthState> {
-  @override
-  Widget build(BuildContext context) {
-    final authState = ref.watch(authStateProvider);
-
-    return authState.when(
-      data: (session) {
-        if (session == null) {
-          return const LoginPage();
-        } else {
-          return widget.child;
-        }
-      },
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stack) => Text('Error: $error'),
-    );
-  }
+  AuthState copyWith({User? user}) => AuthState(user: user ?? this.user);
 }

@@ -1,5 +1,4 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SupabaseConfig {
   static const String supabaseUrl = String.fromEnvironment(
@@ -22,7 +21,3 @@ class SupabaseConfig {
     );
   }
 }
-
-final authStateProvider = StreamProvider.autoDispose((ref) {
-  return SupabaseConfig.client.auth.onAuthStateChange.map((event) => event.session);
-});

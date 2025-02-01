@@ -1,3 +1,12 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_mkd/core/config/supabase_config.dart';
+
+final authProvider = Provider((ref) => AuthProvider());
+
+class AuthProvider {
+  // Define your AuthProvider class here
+}
+
 final supabaseAuthProvider = Provider<GoTrueClient>((ref) {
   return Supabase.instance.client.auth;
 });

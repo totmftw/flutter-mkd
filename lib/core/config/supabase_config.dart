@@ -2,40 +2,24 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SupabaseConfig {
-  static final SupabaseClient client = Supabase.instance.client;
+  static const String supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: 'your-supabase-url',
+  );
   
-  // Private constructor to prevent instantiation
-  const SupabaseConfig._();
+  static const String supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+    defaultValue: 'your-supabase-anon-key',
+  );
 
-  // Database table names as constants
-  static const String usersTable = 'users';
-  static const String postsTable = 'posts';
-  static const String commentsTable = 'comments';
-  static const String likesTable = 'likes';
-  static const String followersTable = 'followers';
+  static final SupabaseClient client = SupabaseClient(supabaseUrl, supabaseAnonKey);
 
-  // Initialize Supabase with environment variables
   static Future<void> initialize() async {
     await Supabase.initialize(
-      url: const String.fromEnvironment('SUPABASE_URL'),
-      anonKey: const String.fromEnvironment('SUPABASE_ANON_KEY'),
-      debug: false,
+      url: supabaseUrl,
+      anonKey: supabaseAnonKey,
+      debug: false, // Set to true for development
     );
-  }
-
-  // Auth helper methods
-  static User? get currentUser => client.auth.currentUser;
-  
-  static Stream<AuthState> get authStateChanges => 
-      client.auth.onAuthStateChange;
-
-  // Database helper methods
-  static Future<Map<String, dynamic>> getUserData(String userId) async {
-    return await client
-        .from(usersTable)
-        .select()
-        .eq('id', userId)
-        .single();
   }
 }
 

@@ -1,31 +1,29 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseConfig {
-  static const supabaseUrl = 'https://ufvxpwwmvgxjcbxjwkrp.supabase.co';
-  static const supabaseAnonKey =
-      'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+  // Private constructor to prevent instantiation
+  SupabaseConfig._();
+  
+  // Static constants for configuration
+  static const String supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: 'your-supabase-url',
+  );
+  
+  static const String supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+    defaultValue: 'your-supabase-anon-key',
+  );
 
+  // Initialize Supabase client
   static Future<void> initialize() async {
     await Supabase.initialize(
       url: supabaseUrl,
       anonKey: supabaseAnonKey,
+      debug: false, // Set to true for development
     );
   }
 
-  static SupabaseClient get client => Supabase.instance.client;
-}
-
-class SupabaseConfig {
-  static Future<void> initialize() async {
-    await dotenv.load();
-
-    await Supabase.initialize(
-      url: dotenv.env['SUPABASE_URL']!,
-      anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
-    );
-  }
-
+  // Getter for Supabase client instance
   static SupabaseClient get client => Supabase.instance.client;
 }

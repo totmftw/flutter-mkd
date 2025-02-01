@@ -1,0 +1,842 @@
+[{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "extends_non_class",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/extends_non_class",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Classes can only extend other classes.\nTry specifying a different superclass, or removing the extends clause.",
+	"source": "dart",
+	"startLineNumber": 5,
+	"startColumn": 60,
+	"endLineNumber": 5,
+	"endColumn": 77
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'mounted'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 8,
+	"startColumn": 9,
+	"endLineNumber": 8,
+	"endColumn": 16
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'context'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 9,
+	"startColumn": 20,
+	"endLineNumber": 9,
+	"endColumn": 27
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'mounted'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 15,
+	"startColumn": 9,
+	"endLineNumber": 15,
+	"endColumn": 16
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'context'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 16,
+	"startColumn": 20,
+	"endLineNumber": 16,
+	"endColumn": 27
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'mounted'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 25,
+	"startColumn": 9,
+	"endLineNumber": 25,
+	"endColumn": 16
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'context'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 26,
+	"startColumn": 28,
+	"endLineNumber": 26,
+	"endColumn": 35
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "override_on_non_overriding_member",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/override_on_non_overriding_member",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The method doesn't override an inherited method.\nTry updating this class to match the superclass, or removing the override annotation.",
+	"source": "dart",
+	"startLineNumber": 7,
+	"startColumn": 8,
+	"endLineNumber": 7,
+	"endColumn": 25
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "override_on_non_overriding_member",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/override_on_non_overriding_member",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The method doesn't override an inherited method.\nTry updating this class to match the superclass, or removing the override annotation.",
+	"source": "dart",
+	"startLineNumber": 14,
+	"startColumn": 8,
+	"endLineNumber": 14,
+	"endColumn": 23
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "override_on_non_overriding_member",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/override_on_non_overriding_member",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The method doesn't override an inherited method.\nTry updating this class to match the superclass, or removing the override annotation.",
+	"source": "dart",
+	"startLineNumber": 21,
+	"startColumn": 8,
+	"endLineNumber": 21,
+	"endColumn": 26
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "override_on_non_overriding_member",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/override_on_non_overriding_member",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The method doesn't override an inherited method.\nTry updating this class to match the superclass, or removing the override annotation.",
+	"source": "dart",
+	"startLineNumber": 24,
+	"startColumn": 8,
+	"endLineNumber": 24,
+	"endColumn": 29
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/auth_state.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "override_on_non_overriding_member",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/override_on_non_overriding_member",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 4,
+	"message": "The getter doesn't override an inherited getter.\nTry updating this class to match the superclass, or removing the override annotation.",
+	"source": "dart",
+	"startLineNumber": 36,
+	"startColumn": 22,
+	"endLineNumber": 36,
+	"endColumn": 30
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "uri_does_not_exist",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/uri_does_not_exist",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Target of URI doesn't exist: '../../core/config/supabase_config.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"source": "dart",
+	"startLineNumber": 4,
+	"startColumn": 8,
+	"endLineNumber": 4,
+	"endColumn": 48
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "non_type_as_type_argument",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_type_as_type_argument",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"source": "dart",
+	"startLineNumber": 7,
+	"startColumn": 52,
+	"endLineNumber": 7,
+	"endColumn": 61
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "non_type_as_type_argument",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_type_as_type_argument",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"source": "dart",
+	"startLineNumber": 11,
+	"startColumn": 53,
+	"endLineNumber": 11,
+	"endColumn": 62
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'SupabaseConfig'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 16,
+	"startColumn": 21,
+	"endLineNumber": 16,
+	"endColumn": 35
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'UserModel'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 41,
+	"startColumn": 20,
+	"endLineNumber": 41,
+	"endColumn": 29
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "non_type_as_type_argument",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_type_as_type_argument",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"source": "dart",
+	"startLineNumber": 6,
+	"startColumn": 52,
+	"endLineNumber": 6,
+	"endColumn": 61
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "non_type_as_type_argument",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_type_as_type_argument",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"source": "dart",
+	"startLineNumber": 10,
+	"startColumn": 53,
+	"endLineNumber": 10,
+	"endColumn": 62
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_getter",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_getter",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The getter 'currentUser' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'currentUser', correcting the name to the name of an existing getter, or defining a getter or field named 'currentUser'.",
+	"source": "dart",
+	"startLineNumber": 26,
+	"startColumn": 37,
+	"endLineNumber": 26,
+	"endColumn": 48
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_identifier",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_identifier",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Undefined name 'UserModel'.\nTry correcting the name to one that is defined, or defining the name.",
+	"source": "dart",
+	"startLineNumber": 38,
+	"startColumn": 20,
+	"endLineNumber": 38,
+	"endColumn": 29
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/screens/login_screen.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "uri_does_not_exist",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/uri_does_not_exist",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Target of URI doesn't exist: '../../dashboard/screens/dashboard_screen.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"source": "dart",
+	"startLineNumber": 4,
+	"startColumn": 8,
+	"endLineNumber": 4,
+	"endColumn": 55
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/screens/login_screen.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "creation_with_non_type",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/creation_with_non_type",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'DashboardScreen' isn't a class.\nTry correcting the name to match an existing class.",
+	"source": "dart",
+	"startLineNumber": 40,
+	"startColumn": 51,
+	"endLineNumber": 40,
+	"endColumn": 66
+},{
+	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "uri_does_not_exist",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/uri_does_not_exist",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "Target of URI doesn't exist: 'core/routes/app_router.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"source": "dart",
+	"startLineNumber": 1,
+	"startColumn": 8,
+	"endLineNumber": 1,
+	"endColumn": 37
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/test/widget_test.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "creation_with_non_type",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/creation_with_non_type",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'MyApp' isn't a class.\nTry correcting the name to match an existing class.",
+	"source": "dart",
+	"startLineNumber": 16,
+	"startColumn": 35,
+	"endLineNumber": 16,
+	"endColumn": 40
+}]
+
+├───.dart_tool
+│   ├───dartpad
+│   └───extension_discovery
+├───.idea
+│   ├───libraries
+│   └───runConfigurations
+├───.vscode
+├───android
+│   ├───app
+│   │   └───src
+│   │       ├───debug
+│   │       ├───main
+│   │       │   ├───java
+│   │       │   │   └───io
+│   │       │   │       └───flutter
+│   │       │   │           └───plugins
+│   │       │   ├───kotlin
+│   │       │   │   └───com
+│   │       │   │       └───example
+│   │       │   │           └───flutter_mkd
+│   │       │   └───res
+│   │       │       ├───drawable
+│   │       │       ├───drawable-v21
+│   │       │       ├───mipmap-hdpi
+│   │       │       ├───mipmap-mdpi
+│   │       │       ├───mipmap-xhdpi
+│   │       │       ├───mipmap-xxhdpi
+│   │       │       ├───mipmap-xxxhdpi
+│   │       │       ├───values
+│   │       │       └───values-night
+│   │       └───profile
+│   └───gradle
+│       └───wrapper
+├───AuxillaryFeatures
+│   └───Themes
+├───ios
+│   ├───Flutter
+│   ├───Runner
+│   │   ├───Assets.xcassets
+│   │   │   ├───AppIcon.appiconset
+│   │   │   └───LaunchImage.imageset
+│   │   └───Base.lproj
+│   ├───Runner.xcodeproj
+│   │   ├───project.xcworkspace
+│   │   │   └───xcshareddata
+│   │   └───xcshareddata
+│   │       └───xcschemes
+│   ├───Runner.xcworkspace
+│   │   └───xcshareddata
+│   └───RunnerTests
+├───lib
+│   ├───core
+│   │   ├───config
+│   │   ├───constants
+│   │   ├───theme
+│   │   └───utils
+│   ├───features
+│   │   ├───auth
+│   │   │   ├───models
+│   │   │   ├───providers
+│   │   │   └───screens
+│   │   ├───dashboard
+│   │   ├───home
+│   │   │   └───screens
+│   │   └───transactions
+│   └───shared
+│       └───widgets
+├───linux
+│   ├───flutter
+│   │   └───ephemeral
+│   │       └───.plugin_symlinks
+│   │           ├───app_links
+│   │           │   ├───android
+│   │           │   │   ├───gradle
+│   │           │   │   │   └───wrapper
+│   │           │   │   └───src
+│   │           │   │       └───main
+│   │           │   │           └───java
+│   │           │   │               └───com
+│   │           │   │                   └───llfbandit
+│   │           │   │                       └───app_links
+│   │           │   ├───example
+│   │           │   │   ├───android
+│   │           │   │   │   ├───app
+│   │           │   │   │   │   └───src
+│   │           │   │   │   │       ├───debug
+│   │           │   │   │   │       ├───main
+│   │           │   │   │   │       │   ├───java
+│   │           │   │   │   │       │   │   ├───com
+│   │           │   │   │   │       │   │   │   └───llfbandit
+│   │           │   │   │   │       │   │   │       └───app_links_example
+│   │           │   │   │   │       │   │   └───io
+│   │           │   │   │   │       │   │       └───flutter
+│   │           │   │   │   │       │   │           └───plugins       
+│   │           │   │   │   │       │   ├───kotlin
+│   │           │   │   │   │       │   │   └───com
+│   │           │   │   │   │       │   │       └───llfbandit
+│   │           │   │   │   │       │   │           └───example       
+│   │           │   │   │   │       │   └───res
+│   │           │   │   │   │       │       ├───drawable
+│   │           │   │   │   │       │       ├───drawable-v21
+│   │           │   │   │   │       │       ├───mipmap-hdpi
+│   │           │   │   │   │       │       ├───mipmap-mdpi
+│   │           │   │   │   │       │       ├───mipmap-xhdpi
+│   │           │   │   │   │       │       ├───mipmap-xxhdpi
+│   │           │   │   │   │       │       ├───mipmap-xxxhdpi
+│   │           │   │   │   │       │       ├───values
+│   │           │   │   │   │       │       └───values-night
+│   │           │   │   │   │       └───profile
+│   │           │   │   │   └───gradle
+│   │           │   │   │       └───wrapper
+│   │           │   │   ├───ios
+│   │           │   │   │   ├───Flutter
+│   │           │   │   │   ├───Runner
+│   │           │   │   │   │   ├───Assets.xcassets
+│   │           │   │   │   │   │   ├───AppIcon.appiconset
+│   │           │   │   │   │   │   └───LaunchImage.imageset
+│   │           │   │   │   │   └───Base.lproj
+│   │           │   │   │   ├───Runner.xcodeproj
+│   │           │   │   │   │   ├───project.xcworkspace
+│   │           │   │   │   │   │   └───xcshareddata
+│   │           │   │   │   │   └───xcshareddata
+│   │           │   │   │   │       └───xcschemes
+│   │           │   │   │   └───Runner.xcworkspace
+│   │           │   │   │       └───xcshareddata
+│   │           │   │   ├───lib
+│   │           │   │   │   └───url_protocol
+│   │           │   │   ├───linux
+│   │           │   │   │   └───flutter
+│   │           │   │   ├───macos
+│   │           │   │   │   ├───Flutter
+│   │           │   │   │   ├───Runner
+│   │           │   │   │   │   ├───Assets.xcassets
+│   │           │   │   │   │   │   └───AppIcon.appiconset
+│   │           │   │   │   │   ├───Base.lproj
+│   │           │   │   │   │   └───Configs
+│   │           │   │   │   ├───Runner.xcodeproj
+│   │           │   │   │   │   ├───project.xcworkspace
+│   │           │   │   │   │   │   └───xcshareddata
+│   │           │   │   │   │   └───xcshareddata
+│   │           │   │   │   │       └───xcschemes
+│   │           │   │   │   └───Runner.xcworkspace
+│   │           │   │   │       └───xcshareddata
+│   │           │   │   ├───web
+│   │           │   │   │   └───icons
+│   │           │   │   └───windows
+│   │           │   │       ├───flutter
+│   │           │   │       └───runner
+│   │           │   │           └───resources
+│   │           │   ├───ios
+│   │           │   │   ├───Classes
+│   │           │   │   └───Resources
+│   │           │   ├───lib
+│   │           │   │   └───src
+│   │           │   ├───macos
+│   │           │   │   ├───Classes
+│   │           │   │   └───Resources
+│   │           │   └───windows
+│   │           │       └───include
+│   │           │           └───app_links
+│   │           ├───gtk
+│   │           │   ├───example
+│   │           │   │   ├───lib
+│   │           │   │   ├───linux
+│   │           │   │   │   └───flutter
+│   │           │   │   └───web
+│   │           │   │       └───icons
+│   │           │   ├───lib
+│   │           │   │   └───src
+│   │           │   ├───linux
+│   │           │   │   └───include
+│   │           │   │       └───gtk
+│   │           │   └───test
+│   │           ├───path_provider_linux
+│   │           │   ├───example
+│   │           │   │   ├───integration_test
+│   │           │   │   ├───lib
+│   │           │   │   ├───linux
+│   │           │   │   │   └───flutter
+│   │           │   │   └───test_driver
+│   │           │   ├───lib
+│   │           │   │   └───src
+│   │           │   └───test
+│   │           ├───shared_preferences_linux
+│   │           │   ├───example
+│   │           │   │   ├───integration_test
+│   │           │   │   ├───lib
+│   │           │   │   ├───linux
+│   │           │   │   │   └───flutter
+│   │           │   │   └───test_driver
+│   │           │   ├───lib
+│   │           │   └───test
+│   │           └───url_launcher_linux
+│   │               ├───example
+│   │               │   ├───integration_test
+│   │               │   ├───lib
+│   │               │   ├───linux
+│   │               │   │   └───flutter
+│   │               │   └───test_driver
+│   │               ├───lib
+│   │               │   └───src
+│   │               ├───linux
+│   │               │   ├───include
+│   │               │   │   └───url_launcher_linux
+│   │               │   └───test
+│   │               ├───pigeons
+│   │               └───test
+│   └───runner
+├───macos
+│   ├───Flutter
+│   │   └───ephemeral
+│   ├───Runner
+│   │   ├───Assets.xcassets
+│   │   │   └───AppIcon.appiconset
+│   │   ├───Base.lproj
+│   │   └───Configs
+│   ├───Runner.xcodeproj
+│   │   ├───project.xcworkspace
+│   │   │   └───xcshareddata
+│   │   └───xcshareddata
+│   │       └───xcschemes
+│   ├───Runner.xcworkspace
+│   │   └───xcshareddata
+│   └───RunnerTests
+├───Prerequisites
+├───test
+│   └───core
+│       └───utils
+├───web
+│   └───icons
+└───windows
+    ├───flutter
+    │   └───ephemeral
+    │       └───.plugin_symlinks
+    │           ├───app_links
+    │           │   ├───android
+    │           │   │   ├───gradle
+    │           │   │   │   └───wrapper
+    │           │   │   └───src
+    │           │   │       └───main
+    │           │   │           └───java
+    │           │   │               └───com
+    │           │   │                   └───llfbandit
+    │           │   │                       └───app_links
+    │           │   ├───example
+    │           │   │   ├───android
+    │           │   │   │   ├───app
+    │           │   │   │   │   └───src
+    │           │   │   │   │       ├───debug
+    │           │   │   │   │       ├───main
+    │           │   │   │   │       │   ├───java
+    │           │   │   │   │       │   │   ├───com
+    │           │   │   │   │       │   │   │   └───llfbandit
+    │           │   │   │   │       │   │   │       └───app_links_example
+    │           │   │   │   │       │   │   └───io
+    │           │   │   │   │       │   │       └───flutter
+    │           │   │   │   │       │   │           └───plugins       
+    │           │   │   │   │       │   ├───kotlin
+    │           │   │   │   │       │   │   └───com
+    │           │   │   │   │       │   │       └───llfbandit
+    │           │   │   │   │       │   │           └───example       
+    │           │   │   │   │       │   └───res
+    │           │   │   │   │       │       ├───drawable
+    │           │   │   │   │       │       ├───drawable-v21
+    │           │   │   │   │       │       ├───mipmap-hdpi
+    │           │   │   │   │       │       ├───mipmap-mdpi
+    │           │   │   │   │       │       ├───mipmap-xhdpi
+    │           │   │   │   │       │       ├───mipmap-xxhdpi
+    │           │   │   │   │       │       ├───mipmap-xxxhdpi
+    │           │   │   │   │       │       ├───values
+    │           │   │   │   │       │       └───values-night
+    │           │   │   │   │       └───profile
+    │           │   │   │   └───gradle
+    │           │   │   │       └───wrapper
+    │           │   │   ├───ios
+    │           │   │   │   ├───Flutter
+    │           │   │   │   ├───Runner
+    │           │   │   │   │   ├───Assets.xcassets
+    │           │   │   │   │   │   ├───AppIcon.appiconset
+    │           │   │   │   │   │   └───LaunchImage.imageset
+    │           │   │   │   │   └───Base.lproj
+    │           │   │   │   ├───Runner.xcodeproj
+    │           │   │   │   │   ├───project.xcworkspace
+    │           │   │   │   │   │   └───xcshareddata
+    │           │   │   │   │   └───xcshareddata
+    │           │   │   │   │       └───xcschemes
+    │           │   │   │   └───Runner.xcworkspace
+    │           │   │   │       └───xcshareddata
+    │           │   │   ├───lib
+    │           │   │   │   └───url_protocol
+    │           │   │   ├───linux
+    │           │   │   │   └───flutter
+    │           │   │   ├───macos
+    │           │   │   │   ├───Flutter
+    │           │   │   │   ├───Runner
+    │           │   │   │   │   ├───Assets.xcassets
+    │           │   │   │   │   │   └───AppIcon.appiconset
+    │           │   │   │   │   ├───Base.lproj
+    │           │   │   │   │   └───Configs
+    │           │   │   │   ├───Runner.xcodeproj
+    │           │   │   │   │   ├───project.xcworkspace
+    │           │   │   │   │   │   └───xcshareddata
+    │           │   │   │   │   └───xcshareddata
+    │           │   │   │   │       └───xcschemes
+    │           │   │   │   └───Runner.xcworkspace
+    │           │   │   │       └───xcshareddata
+    │           │   │   ├───web
+    │           │   │   │   └───icons
+    │           │   │   └───windows
+    │           │   │       ├───flutter
+    │           │   │       └───runner
+    │           │   │           └───resources
+    │           │   ├───ios
+    │           │   │   ├───Classes
+    │           │   │   └───Resources
+    │           │   ├───lib
+    │           │   │   └───src
+    │           │   ├───macos
+    │           │   │   ├───Classes
+    │           │   │   └───Resources
+    │           │   └───windows
+    │           │       └───include
+    │           │           └───app_links
+    │           ├───path_provider_windows
+    │           │   ├───example
+    │           │   │   ├───integration_test
+    │           │   │   ├───lib
+    │           │   │   ├───test_driver
+    │           │   │   └───windows
+    │           │   │       ├───flutter
+    │           │   │       └───runner
+    │           │   │           └───resources
+    │           │   ├───lib
+    │           │   │   └───src
+    │           │   └───test
+    │           ├───shared_preferences_windows
+    │           │   ├───example
+    │           │   │   ├───integration_test
+    │           │   │   ├───lib
+    │           │   │   ├───test_driver
+    │           │   │   └───windows
+    │           │   │       ├───flutter
+    │           │   │       └───runner
+    │           │   │           └───resources
+    │           │   ├───lib
+    │           │   └───test
+    │           └───url_launcher_windows
+    │               ├───example
+    │               │   ├───integration_test
+    │               │   ├───lib
+    │               │   ├───test_driver
+    │               │   └───windows
+    │               │       ├───flutter
+    │               │       └───runner
+    │               │           └───resources
+    │               ├───lib
+    │               │   └───src
+    │               ├───pigeons
+    │               ├───test
+    │               └───windows
+    │                   ├───include
+    │                   │   └───url_launcher_windows
+    │                   └───test
+    └───runner
+        └───resources

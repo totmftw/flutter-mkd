@@ -1,37 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../config/supabase_config.dart';
 
-abstract class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
-  @override
-  void onUnauthenticated() {
-    if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/login');
-    }
+class AuthState extends ChangeNotifier {
+  final _supabase = Supabase.instance.client;
+  bool _isAuthenticated = false;
+  User? _currentUser;
+
+  bool get isAuthenticated => _isAuthenticated;
+  User? get currentUser => _currentUser;
+
+  AuthState() {
+    _initialize();
   }
 
-  @override
-  void onAuthenticated(Session session) {
-    if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/dashboard');
-    }
+  void _initialize() {
+    _currentUser = _supabase.auth.currentUser;
+    _isAuthenticated = _currentUser != null;
+
+    _supabase.auth.onAuthStateChange.listen((data) {
+      final AuthChangeEvent event = data.event;
+      final Session? session = data.session;
+
+      switch (event) {
+        case AuthChangeEvent.signedIn:
+          _currentUser = session?.user;
+          _isAuthenticated = true;
+          break;
+        case AuthChangeEvent.signedOut:
+          _currentUser = null;
+          _isAuthenticated = false;
+          break;
+        default:
+          break;
+      }
+      notifyListeners();
+    });
   }
 
-  @override
-  void onPasswordRecovery(Session session) {}
-
-  @override
-  void onErrorAuthenticating(String message) {
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(message),
-          backgroundColor: Colors.red,
-        ),
-      );
-    }
+  Future<void> signOut() async {
+    await _supabase.auth.signOut();
+    _isAuthenticated = false;
+    _currentUser = null;
+    notifyListeners();
   }
-
-  @override
-  SupabaseClient get supabase => SupabaseConfig.client;
 }

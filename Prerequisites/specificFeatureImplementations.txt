@@ -37,14 +37,6 @@ Technical Requirements:
     Security: Supabase RLS preconfigured, IT Admin role restrictions.
     Code Quality: Refactor long code into reusable snippets, organize scattered components.
 
-Issues to Fix:
-
-    Transaction Page:
-        Invoices tab: Non-functional customer dropdown, incorrect Excel template, missing PDF export, non-functional column configuration, incorrect table data display.
-        Payments tab: Non-functional upload, add payment, and download template buttons.
-        Ledger tab: Non-functional customer selection and PDF export.
-    Dashboard Page:
-        Non-functional components and layout persistence.
 
 Next Steps:
 

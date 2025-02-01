@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../auth/pages/login_page.dart';
 import '../../auth/providers/auth_provider.dart';
 import '../../payment/providers/payment_reminder_provider.dart';
 
@@ -30,7 +29,9 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
   void initState() {
     super.initState();
     // Trigger payment reminder check on dashboard load
-    ref.read(paymentReminderControllerProvider.notifier).checkAndSendReminders();
+    ref
+        .read(paymentReminderControllerProvider.notifier)
+        .checkAndSendReminders();
   }
 
   void _showWhatsAppSetupDialog() {

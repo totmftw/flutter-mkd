@@ -1,19 +1,7 @@
 // lib/core/constants/theme_constants.dart
 import 'package:flutter/material.dart';
 
-class ThemeConstants {
-  // Spacing
-  static const double spacingXs = 4.0;
-  static const double spacingSm = 8.0;
-  static const double spacingMd = 16.0;
-  static const double spacingLg = 24.0;
-  static const double spacingXl = 32.0;
 
-  // Icons
-  static const double iconSizeSm = 16.0;
-  static const double iconSizeMd = 24.0;
-  static const double iconSizeLg = 32.0;
-}
 
 class ThemeConstants {
   // Colors

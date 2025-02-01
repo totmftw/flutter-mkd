@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_mkd/core/config/supabase_config.dart';
-import 'package:flutter_mkd/features/auth/pages/login_page.dart';
+import 'package:flutter_mkd/core/features/auth/pages/login_page.dart';
 
 final authStateProvider = StreamProvider.autoDispose((ref) {
   return SupabaseConfig.client.auth.onAuthStateChange

@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' as riverpod;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_mkd/core/config/supabase_config.dart';
-import 'package:flutter_mkd/features/auth/pages/login_page.dart';
 
-final supabaseAuthProvider = Provider((ref) => SupabaseConfig.client.auth);
+final supabaseAuthProvider = riverpod.Provider((ref) => SupabaseConfig.client.auth);
 
-final authStateChangesProvider = StreamProvider<AuthState>((ref) {
+final authStateChangesProvider = riverpod.StreamProvider<AuthState>((ref) {
   final auth = ref.watch(supabaseAuthProvider);
   return auth.onAuthStateChange;
 });
 
-final currentUserProvider = Provider<User?>((ref) {
+final currentUserProvider = riverpod.Provider<User?>((ref) {
   final auth = ref.watch(supabaseAuthProvider);
   return auth.currentUser;
 });
 
-final isAuthenticatedProvider = Provider<bool>((ref) {
+final isAuthenticatedProvider = riverpod.Provider<bool>((ref) {
   final user = ref.watch(currentUserProvider);
   return user != null;
 });

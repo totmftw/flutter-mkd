@@ -1,5 +1,5 @@
 name: flutter_mkd
-description: A new Flutter project for business management.
+description: A business management application for the Indian market
 
 version: 1.0.0+1
 
@@ -25,6 +25,8 @@ dependencies:
   
   # Utilities
   intl: ^0.19.0
+  logging: ^1.2.0
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -46,3 +48,5 @@ flutter:
         - asset: assets/fonts/Roboto-Regular.ttf
         - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
+        - asset: assets/fonts/Roboto-Italic.ttf
+          style: italic

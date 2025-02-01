@@ -1,40 +1,66 @@
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  final Widget mobile;
-  final Widget tablet;
-  final Widget desktop;
+  final Widget Function(BuildContext)? mobileBuilder;
+  final Widget Function(BuildContext)? tabletBuilder;
+  final Widget Function(BuildContext)? desktopBuilder;
 
   const ResponsiveLayout({
     Key? key,
-    required this.mobile,
-    required this.tablet,
-    required this.desktop,
+    this.mobileBuilder,
+    this.tabletBuilder,
+    this.desktopBuilder,
   }) : super(key: key);
-
-  static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 650;
-
-  static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 650 &&
-      MediaQuery.of(context).size.width < 1100;
-
-  static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1100;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 1100) {
-          return desktop;
-        } else if (constraints.maxWidth >= 650) {
-          return tablet;
+        if (isMobile(context)) {
+          return mobileBuilder?.call(context) ?? _defaultBuilder(context);
+        } else if (isTablet(context)) {
+          return tabletBuilder?.call(context) ?? 
+                 mobileBuilder?.call(context) ?? 
+                 _defaultBuilder(context);
         } else {
-          return mobile;
+          return desktopBuilder?.call(context) ?? 
+                 tabletBuilder?.call(context) ?? 
+                 mobileBuilder?.call(context) ?? 
+                 _defaultBuilder(context);
         }
       },
     );
+  }
+
+  Widget _defaultBuilder(BuildContext context) {
+    return const Center(
+      child: Text('No layout defined'),
+    );
+  }
+
+  static bool isMobile(BuildContext context) {
+    return MediaQuery.of(context).size.width < 600;
+  }
+
+  static bool isTablet(BuildContext context) {
+    return MediaQuery.of(context).size.width >= 600 &&
+        MediaQuery.of(context).size.width < 1200;
+  }
+
+  static bool isDesktop(BuildContext context) {
+    return MediaQuery.of(context).size.width >= 1200;
+  }
+}
+
+class ResponsiveSpacing {
+  static double getResponsiveSpacing(BuildContext context) {
+    if (ResponsiveLayout.isMobile(context)) {
+      return 8.0;  // Smaller spacing for mobile
+    } else if (ResponsiveLayout.isTablet(context)) {
+      return 16.0; // Medium spacing for tablet
+    } else {
+      return 24.0; // Larger spacing for desktop
+    }
   }
 }
 

@@ -16,24 +16,38 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
+  final Logger _logger = Logger('LoginPage');
+
   @override
   void initState() {
     super.initState();
-    print('LoginPage: initState called');
+    _logger.info('initState called');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _logger.info('build method called');
+    return Scaffold(
+      body: ResponsiveLayout(
+        mobileBuilder: (context) => buildMobileLayout(context),
+        tabletBuilder: (context) => buildDesktopLayout(context),
+        desktopBuilder: (context) => buildDesktopLayout(context),
+      ),
+    );
   }
 
   Widget buildMobileLayout(BuildContext context) {
-    print('LoginPage: buildMobileLayout called');
-    return Center(
+    _logger.info('buildMobileLayout called');
+    return const Center(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-        child: const LoginForm(),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+        child: LoginForm(),
       ),
     );
   }
 
   Widget buildDesktopLayout(BuildContext context) {
-    print('LoginPage: buildDesktopLayout called');
+    _logger.info('buildDesktopLayout called');
     return Center(
       child: Container(
         width: 500,
@@ -53,18 +67,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       ),
     );
   }
-
-  @override
-  Widget build(BuildContext context) {
-    print('LoginPage: build method called');
-    return Scaffold(
-      body: ResponsiveLayout(
-        mobileBuilder: buildMobileLayout,
-        tabletBuilder: buildDesktopLayout,
-        desktopBuilder: buildDesktopLayout,
-      ),
-    );
-  }
 }
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -75,10 +77,10 @@ class LoginForm extends ConsumerStatefulWidget {
 }
 
 class LoginFormState extends ConsumerState<LoginForm> {
+  final Logger _logger = Logger('LoginFormState');
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _secureStorage = const FlutterSecureStorage();
-  final _logger = Logger('LoginFormState');
 
   bool _isLoading = false;
   bool _rememberMe = false;
@@ -86,12 +88,12 @@ class LoginFormState extends ConsumerState<LoginForm> {
   @override
   void initState() {
     super.initState();
-    print('LoginFormState: initState called');
+    _logger.info('initState called');
     _loadSavedCredentials();
   }
 
   Future<void> _loadSavedCredentials() async {
-    print('LoginFormState: _loadSavedCredentials called');
+    _logger.info('_loadSavedCredentials called');
     try {
       final email = await _secureStorage.read(key: 'email');
       final password = await _secureStorage.read(key: 'password');
@@ -109,7 +111,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   Future<void> _saveCredentials() async {
-    print('LoginFormState: _saveCredentials called');
+    _logger.info('_saveCredentials called');
     if (_rememberMe) {
       await _secureStorage.write(key: 'email', value: _emailController.text);
       await _secureStorage.write(key: 'password', value: _passwordController.text);
@@ -120,7 +122,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   void _showErrorSnackBar(String message) {
-    print('LoginFormState: _showErrorSnackBar called');
+    _logger.info('_showErrorSnackBar called');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -131,7 +133,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   void _navigateToDashboard() {
-    print('LoginFormState: _navigateToDashboard called');
+    _logger.info('_navigateToDashboard called');
     if (!mounted) return;
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const DashboardPage()),
@@ -139,7 +141,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   Future<void> _login() async {
-    print('LoginFormState: _login called');
+    _logger.info('_login called');
     if (!mounted) return;
 
     setState(() => _isLoading = true);
@@ -171,7 +173,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   void _forgotPassword() {
-    print('LoginFormState: _forgotPassword called');
+    _logger.info('_forgotPassword called');
     showDialog(
       context: context,
       builder: (context) => ForgotPasswordDialog(
@@ -182,7 +184,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   Future<void> _handlePasswordReset(String email) async {
-    print('LoginFormState: _handlePasswordReset called');
+    _logger.info('_handlePasswordReset called');
     try {
       if (!_isValidEmail(email)) {
         _showErrorSnackBar('Please enter a valid email address');
@@ -208,14 +210,14 @@ class LoginFormState extends ConsumerState<LoginForm> {
   }
 
   bool _isValidEmail(String email) {
-    print('LoginFormState: _isValidEmail called');
+    _logger.info('_isValidEmail called');
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     return emailRegex.hasMatch(email);
   }
 
   @override
   Widget build(BuildContext context) {
-    print('LoginFormState: build method called');
+    _logger.info('build method called');
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -287,7 +289,7 @@ class LoginFormState extends ConsumerState<LoginForm> {
 
   @override
   void dispose() {
-    print('LoginFormState: dispose method called');
+    _logger.info('dispose method called');
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -309,11 +311,12 @@ class ForgotPasswordDialog extends StatefulWidget {
 }
 
 class ForgotPasswordDialogState extends State<ForgotPasswordDialog> {
+  final Logger _logger = Logger('ForgotPasswordDialogState');
   bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    print('ForgotPasswordDialogState: build method called');
+    _logger.info('build method called');
     return AlertDialog(
       title: const Text('Forgot Password'),
       content: TextField(
@@ -361,11 +364,11 @@ class SocialLoginButton extends ConsumerStatefulWidget {
 }
 
 class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
+  final Logger _logger = Logger('SocialLoginButtonState');
   bool _isLoading = false;
-  final _logger = Logger('SocialLoginButtonState');
 
   void _showErrorSnackBar(String message) {
-    print('SocialLoginButtonState: _showErrorSnackBar called');
+    _logger.info('_showErrorSnackBar called');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -376,7 +379,7 @@ class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
   }
 
   void _navigateToDashboard() {
-    print('SocialLoginButtonState: _navigateToDashboard called');
+    _logger.info('_navigateToDashboard called');
     if (!mounted) return;
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const DashboardPage()),
@@ -384,7 +387,7 @@ class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
   }
 
   Future<void> _handleGoogleSignIn() async {
-    print('SocialLoginButtonState: _handleGoogleSignIn called');
+    _logger.info('_handleGoogleSignIn called');
     if (!mounted) return;
 
     setState(() => _isLoading = true);
@@ -411,7 +414,7 @@ class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
   }
 
   Future<void> _handleAppleSignIn() async {
-    print('SocialLoginButtonState: _handleAppleSignIn called');
+    _logger.info('_handleAppleSignIn called');
     if (!mounted) return;
 
     setState(() => _isLoading = true);
@@ -439,7 +442,7 @@ class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
 
   @override
   Widget build(BuildContext context) {
-    print('SocialLoginButtonState: build method called');
+    _logger.info('build method called');
     return Column(
       children: [
         const Text('Or continue with'),
@@ -469,7 +472,7 @@ class SocialLoginButtonState extends ConsumerState<SocialLoginButton> {
     required VoidCallback? onPressed,
     bool isLoading = false,
   }) {
-    print('SocialLoginButtonState: _buildSocialButton called');
+    _logger.info('_buildSocialButton called');
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(

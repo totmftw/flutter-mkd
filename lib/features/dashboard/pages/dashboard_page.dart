@@ -6,6 +6,14 @@ import '../../../core/theme/app_theme.dart';
 import '../../auth/pages/login_page.dart';
 import '../../auth/providers/auth_provider.dart';
 
+// TODO: Comprehensive Dashboard Card Details
+// This section requires detailed implementation of dashboard metrics
+// Key requirements:
+// 1. Fetch real-time data from backend
+// 2. Implement dynamic card generation
+// 3. Add drill-down capabilities for each metric
+// 4. Ensure responsive design across devices
+
 class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
@@ -107,29 +115,27 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: () {
-          /// TODO: Comprehensive Dashboard Card Details
-          /// 
-          /// Roadmap for Detailed View Implementation:
-          /// 1. Create a new DetailedDashboardView widget
-          /// 2. Implement context-specific data retrieval
-          ///    - Fetch relevant data based on card type
-          ///    - Use Riverpod for state management
-          /// 3. Design responsive layout for details
-          ///    - Mobile: Bottom sheet or full-screen modal
-          ///    - Tablet/Desktop: Side panel or modal dialog
-          /// 4. Include interactive elements:
-          ///    - Date range selection
-          ///    - Filterable data views
-          ///    - Export options (PDF, CSV)
-          /// 5. Add visualizations:
-          ///    - Line charts for trends
-          ///    - Pie charts for distribution
-          ///    - Comparative analytics
-          /// 
-          /// Considerations:
-          /// - Optimize performance for large datasets
-          /// - Implement caching mechanisms
-          /// - Ensure responsive and adaptive design
+          // Roadmap for Detailed View Implementation:
+          // 1. Create a new DetailedDashboardView widget
+          // 2. Implement context-specific data retrieval
+          //    - Fetch relevant data based on card type
+          //    - Use Riverpod for state management
+          // 3. Design responsive layout for details
+          //    - Mobile: Bottom sheet or full-screen modal
+          //    - Tablet/Desktop: Side panel or modal dialog
+          // 4. Include interactive elements:
+          //    - Date range selection
+          //    - Filterable data views
+          //    - Export options (PDF, CSV)
+          // 5. Add visualizations:
+          //    - Line charts for trends
+          //    - Pie charts for distribution
+          //    - Comparative analytics
+          // 
+          // Considerations:
+          // - Optimize performance for large datasets
+          // - Implement caching mechanisms
+          // - Ensure responsive and adaptive design
         },
         child: Padding(
           padding: const EdgeInsets.all(20),

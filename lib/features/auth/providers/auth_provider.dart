@@ -1,42 +1,47 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:supabase/supabase.dart';
-import 'package:supabase_config/supabase_config.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import '../../../core/config/supabase_config.dart';
 
-final supabaseAuthProvider = Provider<SupabaseConfig>((ref) {
-  final supabaseUrl = 'https://your-supabase-url.supabase.co';
-  final supabaseKey = 'your-supabase-anon-key';
-  return SupabaseConfig(
-    url: supabaseUrl,
-    key: supabaseKey,
-  );
-});
+enum AuthStatus { initial, authenticated, unauthenticated }
 
-final authStateChangesProvider = StreamProvider<AuthState>((ref) {
-  final auth = ref.watch(supabaseAuthProvider).auth;
-  return auth.onAuthStateChange.map((event) {
-    if (event is AuthEvent) {
-      switch (event.type) {
-        case 'SIGNED_IN':
-          return AuthState(user: event.user);
-        case 'SIGNED_OUT':
-          return const AuthState(user: null);
+class AuthNotifier extends StateNotifier<AuthStatus> {
+  final SupabaseClient _client;
+
+  AuthNotifier(this._client) : super(AuthStatus.initial) {
+    _client.auth.onAuthStateChange.listen((event) {
+      switch (event.event) {
+        case AuthChangeEvent.signedIn:
+          state = AuthStatus.authenticated;
+          break;
+        case AuthChangeEvent.signedOut:
+          state = AuthStatus.unauthenticated;
+          break;
         default:
-          return const AuthState(user: null);
+          break;
       }
+    });
+  }
+
+  Future<void> signIn(String email, String password) async {
+    try {
+      await _client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+      state = AuthStatus.authenticated;
+    } catch (e) {
+      state = AuthStatus.unauthenticated;
+      rethrow;
     }
-    return const AuthState(user: null);
-  });
-});
+  }
 
-final currentUserProvider = Provider<User?>((ref) {
-  final auth = ref.watch(supabaseAuthProvider).auth;
-  return auth.currentUser;
-});
-
-class AuthState {
-  final User? user;
-
-  const AuthState({this.user});
-
-  AuthState copyWith({User? user}) => AuthState(user: user ?? this.user);
+  Future<void> signOut() async {
+    await _client.auth.signOut();
+    state = AuthStatus.unauthenticated;
+  }
 }
+
+final authProvider = StateNotifierProvider<AuthNotifier, AuthStatus>((ref) {
+  final supabaseClient = SupabaseConfig().client;
+  return AuthNotifier(supabaseClient);
+});

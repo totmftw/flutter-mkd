@@ -1,23 +1,40 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseConfig {
-  static const String supabaseUrl = String.fromEnvironment(
-    'SUPABASE_URL',
-    defaultValue: 'your-supabase-url',
-  );
-  
-  static const String supabaseAnonKey = String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
-    defaultValue: 'your-supabase-anon-key',
-  );
+  // Singleton instance
+  static final SupabaseConfig _instance = SupabaseConfig._internal();
 
-  static final SupabaseClient client = SupabaseClient(supabaseUrl, supabaseAnonKey);
+  // Supabase client
+  late SupabaseClient _client;
 
-  static Future<void> initialize() async {
-    await Supabase.initialize(
-      url: supabaseUrl,
-      anonKey: supabaseAnonKey,
-      debug: false, // Set to true for development
-    );
+  // Factory constructor to return the singleton instance
+  factory SupabaseConfig() {
+    return _instance;
   }
+
+  // Private constructor
+  SupabaseConfig._internal();
+
+  // Initialize Supabase with URL and Anon Key
+  Future<void> initialize({
+    required String supabaseUrl,
+    required String supabaseAnonKey,
+  }) async {
+    try {
+      await Supabase.initialize(
+        url: supabaseUrl,
+        anonKey: supabaseAnonKey,
+        debug: kDebugMode, // Enable debug mode in debug builds
+      );
+      _client = Supabase.instance.client;
+    } catch (e) {
+      // Log initialization error
+      debugPrint('Supabase initialization error: $e');
+      rethrow;
+    }
+  }
+
+  // Getter for Supabase client
+  SupabaseClient get client => _client;
 }

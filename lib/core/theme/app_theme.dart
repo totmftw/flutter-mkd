@@ -6,27 +6,28 @@ class AppTheme {
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blue,
       foregroundColor: Colors.white,
       elevation: 4,
     ),
-    textTheme: TextTheme(
-      displayLarge: TextStyle(color: Colors.black87, fontSize: 24, fontWeight: FontWeight.bold),
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+          color: Colors.black87, fontSize: 24, fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(color: Colors.black54, fontSize: 16),
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.blue),
+        borderSide: const BorderSide(color: Colors.blue),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: const BorderSide(color: Colors.grey),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.blue, width: 2),
+        borderSide: const BorderSide(color: Colors.blue, width: 2),
       ),
     ),
   );
@@ -41,22 +42,23 @@ class AppTheme {
       foregroundColor: Colors.white,
       elevation: 4,
     ),
-    textTheme: TextTheme(
-      displayLarge: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+          color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(color: Colors.white70, fontSize: 16),
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.blue),
+        borderSide: const BorderSide(color: Colors.blue),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: const BorderSide(color: Colors.grey),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.blue, width: 2),
+        borderSide: const BorderSide(color: Colors.blue, width: 2),
       ),
     ),
   );
@@ -69,9 +71,8 @@ class ThemeModeNotifier extends ChangeNotifier {
   ThemeMode get themeMode => _themeMode;
 
   void toggleTheme() {
-    _themeMode = _themeMode == ThemeMode.light 
-        ? ThemeMode.dark 
-        : ThemeMode.light;
+    _themeMode =
+        _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
 }

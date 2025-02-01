@@ -3,7 +3,8 @@ dependencies:
     sdk: flutter
   intl: ^0.18.0
   supabase_flutter: ^1.10.25
-  riverpod: ^2.4.9
+  flutter_riverpod: ^2.4.9
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:

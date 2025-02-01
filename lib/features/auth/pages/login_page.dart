@@ -27,17 +27,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     _logger.info('build method called');
-    return Scaffold(
-      body: ResponsiveLayout(
-        mobileBuilder: (context) => buildMobileLayout(context),
-        tabletBuilder: (context) => buildDesktopLayout(context),
-        desktopBuilder: (context) => buildDesktopLayout(context),
+    return const Scaffold(
+      body: SafeArea(
+        child: ErrorHandler(
+          child: ResponsiveLayout(
+            mobileBuilder: _buildMobileLayout,
+            tabletBuilder: _buildDesktopLayout,
+            desktopBuilder: _buildDesktopLayout,
+          ),
+        ),
       ),
     );
   }
 
-  Widget buildMobileLayout(BuildContext context) {
-    _logger.info('buildMobileLayout called');
+  static Widget _buildMobileLayout(BuildContext context) {
     return const Center(
       child: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
@@ -46,8 +49,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
   }
 
-  Widget buildDesktopLayout(BuildContext context) {
-    _logger.info('buildDesktopLayout called');
+  static Widget _buildDesktopLayout(BuildContext context) {
     return Center(
       child: Container(
         width: 500,
@@ -65,6 +67,57 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         ),
         child: const LoginForm(),
       ),
+    );
+  }
+}
+
+class ErrorHandler extends StatelessWidget {
+  final Widget child;
+
+  const ErrorHandler({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) {
+        ErrorWidget.builder = (FlutterErrorDetails details) {
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.error_outline,
+                    color: Colors.red,
+                    size: 100,
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Oops! Something went wrong',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    details.exception.toString(),
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => const LoginPage()),
+                      );
+                    },
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        };
+        return child;
+      },
     );
   }
 }

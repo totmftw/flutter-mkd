@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/config/supabase_config.dart';
@@ -7,6 +8,12 @@ import 'core/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Set preferred orientations
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   // Initialize Supabase
   await SupabaseConfig().initialize(
@@ -33,6 +40,23 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: const LoginPage(),
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.ltr,
+          child: MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaleFactor: 1.0,  // Disable text scaling
+              boldText: false,       // Prevent bold text scaling
+            ),
+            child: child!,
+          ),
+        );
+      },
+      // Add accessibility attributes
+      localizationsDelegates: const [],
+      supportedLocales: const [
+        Locale('en', 'IN'),  // English (India)
+      ],
     );
   }
 }

@@ -72,7 +72,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
           ),
         ],
       ),
-      body: const ResponsiveLayout(
+      body: ResponsiveLayout(
         mobileBuilder: _buildMobileDashboard,
         tabletBuilder: _buildDesktopDashboard,
         desktopBuilder: _buildDesktopDashboard,
@@ -96,7 +96,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
     return GridView.builder(
       padding: const EdgeInsets.all(24),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: ResponsiveLayout.isDesktop(context) ? 4 : 2,
+        crossAxisCount: 3,
         childAspectRatio: 1.5,
         crossAxisSpacing: 24,
         mainAxisSpacing: 24,

@@ -1,266 +1,5 @@
 [{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'ThemeConstants' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 18,
-	"startColumn": 7,
-	"endLineNumber": 18,
-	"endColumn": 21,
-	"relatedInformation": [
-		{
-			"startLineNumber": 4,
-			"startColumn": 7,
-			"endLineNumber": 4,
-			"endColumn": 21,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'spacingXs' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 40,
-	"startColumn": 23,
-	"endLineNumber": 40,
-	"endColumn": 32,
-	"relatedInformation": [
-		{
-			"startLineNumber": 6,
-			"startColumn": 23,
-			"endLineNumber": 6,
-			"endColumn": 32,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'spacingSm' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 41,
-	"startColumn": 23,
-	"endLineNumber": 41,
-	"endColumn": 32,
-	"relatedInformation": [
-		{
-			"startLineNumber": 7,
-			"startColumn": 23,
-			"endLineNumber": 7,
-			"endColumn": 32,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'spacingMd' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 42,
-	"startColumn": 23,
-	"endLineNumber": 42,
-	"endColumn": 32,
-	"relatedInformation": [
-		{
-			"startLineNumber": 8,
-			"startColumn": 23,
-			"endLineNumber": 8,
-			"endColumn": 32,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'spacingLg' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 43,
-	"startColumn": 23,
-	"endLineNumber": 43,
-	"endColumn": 32,
-	"relatedInformation": [
-		{
-			"startLineNumber": 9,
-			"startColumn": 23,
-			"endLineNumber": 9,
-			"endColumn": 32,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'spacingXl' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 44,
-	"startColumn": 23,
-	"endLineNumber": 44,
-	"endColumn": 32,
-	"relatedInformation": [
-		{
-			"startLineNumber": 10,
-			"startColumn": 23,
-			"endLineNumber": 10,
-			"endColumn": 32,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'iconSizeSm' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 65,
-	"startColumn": 23,
-	"endLineNumber": 65,
-	"endColumn": 33,
-	"relatedInformation": [
-		{
-			"startLineNumber": 13,
-			"startColumn": 23,
-			"endLineNumber": 13,
-			"endColumn": 33,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'iconSizeMd' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 66,
-	"startColumn": 23,
-	"endLineNumber": 66,
-	"endColumn": 33,
-	"relatedInformation": [
-		{
-			"startLineNumber": 14,
-			"startColumn": 23,
-			"endLineNumber": 14,
-			"endColumn": 33,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "duplicate_definition",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/duplicate_definition",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'iconSizeLg' is already defined.\nTry renaming one of the declarations.",
-	"source": "dart",
-	"startLineNumber": 67,
-	"startColumn": 23,
-	"endLineNumber": 67,
-	"endColumn": 33,
-	"relatedInformation": [
-		{
-			"startLineNumber": 15,
-			"startColumn": 23,
-			"endLineNumber": 15,
-			"endColumn": 33,
-			"message": "The first definition of this name.",
-			"resource": "/C:/APp Projects/flutter-mkd/lib/core/constants/theme_constants.dart"
-		}
-	]
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
 		"value": "uri_does_not_exist",
@@ -272,126 +11,50 @@
 		}
 	},
 	"severity": 8,
-	"message": "Target of URI doesn't exist: '../../core/config/supabase_config.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"message": "Target of URI doesn't exist: 'package:intl/intl.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
 	"source": "dart",
-	"startLineNumber": 4,
+	"startLineNumber": 1,
 	"startColumn": 8,
-	"endLineNumber": 4,
-	"endColumn": 48
+	"endLineNumber": 1,
+	"endColumn": 32
 },{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
-		"value": "non_type_as_type_argument",
+		"value": "undefined_method",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/non_type_as_type_argument",
+			"path": "/diagnostics/undefined_method",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"message": "The method 'DateFormat' isn't defined for the type 'DateFormatter'.\nTry correcting the name to the name of an existing method, or defining a method named 'DateFormat'.",
 	"source": "dart",
-	"startLineNumber": 7,
-	"startColumn": 52,
-	"endLineNumber": 7,
-	"endColumn": 61
+	"startLineNumber": 5,
+	"startColumn": 12,
+	"endLineNumber": 5,
+	"endColumn": 22
 },{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/core/utils/date_formatter.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
-		"value": "non_type_as_type_argument",
+		"value": "depend_on_referenced_packages",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/non_type_as_type_argument",
+			"path": "/diagnostics/depend_on_referenced_packages",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
-	"severity": 8,
-	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
+	"severity": 2,
+	"message": "The imported package 'intl' isn't a dependency of the importing package.\nTry adding a dependency for 'intl' in the 'pubspec.yaml' file.",
 	"source": "dart",
-	"startLineNumber": 11,
-	"startColumn": 53,
-	"endLineNumber": 11,
-	"endColumn": 62
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "undefined_identifier",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/undefined_identifier",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "Undefined name 'SupabaseConfig'.\nTry correcting the name to one that is defined, or defining the name.",
-	"source": "dart",
-	"startLineNumber": 16,
-	"startColumn": 21,
-	"endLineNumber": 16,
-	"endColumn": 35
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/models/user_model.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "undefined_identifier",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/undefined_identifier",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "Undefined name 'UserModel'.\nTry correcting the name to one that is defined, or defining the name.",
-	"source": "dart",
-	"startLineNumber": 41,
-	"startColumn": 20,
-	"endLineNumber": 41,
-	"endColumn": 29
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "non_type_as_type_argument",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/non_type_as_type_argument",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
-	"source": "dart",
-	"startLineNumber": 6,
-	"startColumn": 52,
-	"endLineNumber": 6,
-	"endColumn": 61
-},{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "non_type_as_type_argument",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/non_type_as_type_argument",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "The name 'UserModel' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'UserModel'.",
-	"source": "dart",
-	"startLineNumber": 10,
-	"startColumn": 53,
-	"endLineNumber": 10,
-	"endColumn": 62
+	"startLineNumber": 1,
+	"startColumn": 8,
+	"endLineNumber": 1,
+	"endColumn": 32
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
@@ -405,52 +68,100 @@
 		}
 	},
 	"severity": 8,
-	"message": "The getter 'currentUser' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'currentUser', correcting the name to the name of an existing getter, or defining a getter or field named 'currentUser'.",
+	"message": "The getter 'usersTable' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'usersTable', correcting the name to the name of an existing getter, or defining a getter or field named 'usersTable'.",
 	"source": "dart",
-	"startLineNumber": 26,
-	"startColumn": 37,
-	"endLineNumber": 26,
-	"endColumn": 48
+	"startLineNumber": 18,
+	"startColumn": 34,
+	"endLineNumber": 18,
+	"endColumn": 44
 },{
 	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
-		"value": "undefined_identifier",
+		"value": "undefined_getter",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/undefined_identifier",
+			"path": "/diagnostics/undefined_getter",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "Undefined name 'UserModel'.\nTry correcting the name to one that is defined, or defining the name.",
+	"message": "The getter 'usersTable' isn't defined for the type 'SupabaseConfig'.\nTry importing the library that defines 'usersTable', correcting the name to the name of an existing getter, or defining a getter or field named 'usersTable'.",
 	"source": "dart",
-	"startLineNumber": 38,
-	"startColumn": 20,
-	"endLineNumber": 38,
-	"endColumn": 29
+	"startLineNumber": 43,
+	"startColumn": 34,
+	"endLineNumber": 43,
+	"endColumn": 44
 },{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/screens/login_screen.dart",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
-		"value": "uri_does_not_exist",
+		"value": "duplicate_definition",
 		"target": {
 			"$mid": 1,
-			"path": "/diagnostics/uri_does_not_exist",
+			"path": "/diagnostics/duplicate_definition",
 			"scheme": "https",
 			"authority": "dart.dev"
 		}
 	},
 	"severity": 8,
-	"message": "Target of URI doesn't exist: '../../dashboard/screens/dashboard_screen.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
+	"message": "The name 'authProvider' is already defined.\nTry renaming one of the declarations.",
 	"source": "dart",
-	"startLineNumber": 4,
-	"startColumn": 8,
-	"endLineNumber": 4,
-	"endColumn": 55
+	"startLineNumber": 72,
+	"startColumn": 7,
+	"endLineNumber": 72,
+	"endColumn": 19,
+	"relatedInformation": [
+		{
+			"startLineNumber": 64,
+			"startColumn": 7,
+			"endLineNumber": 64,
+			"endColumn": 19,
+			"message": "The first definition of this name.",
+			"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart"
+		}
+	]
 },{
-	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/screens/login_screen.dart",
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "non_type_as_type_argument",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/non_type_as_type_argument",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The name 'AuthProvider' isn't a type, so it can't be used as a type argument.\nTry correcting the name to an existing type, or defining a type named 'AuthProvider'.",
+	"source": "dart",
+	"startLineNumber": 72,
+	"startColumn": 44,
+	"endLineNumber": 72,
+	"endColumn": 56
+},{
+	"resource": "/C:/APp Projects/flutter-mkd/lib/features/auth/providers/auth_provider.dart",
+	"owner": "_generated_diagnostic_collection_name_#2",
+	"code": {
+		"value": "undefined_function",
+		"target": {
+			"$mid": 1,
+			"path": "/diagnostics/undefined_function",
+			"scheme": "https",
+			"authority": "dart.dev"
+		}
+	},
+	"severity": 8,
+	"message": "The function 'AuthProvider' isn't defined.\nTry importing the library that defines 'AuthProvider', correcting the name to the name of an existing function, or defining a function named 'AuthProvider'.",
+	"source": "dart",
+	"startLineNumber": 73,
+	"startColumn": 10,
+	"endLineNumber": 73,
+	"endColumn": 22
+},{
+	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
 	"owner": "_generated_diagnostic_collection_name_#2",
 	"code": {
 		"value": "creation_with_non_type",
@@ -462,50 +173,12 @@
 		}
 	},
 	"severity": 8,
-	"message": "The name 'DashboardScreen' isn't a class.\nTry correcting the name to match an existing class.",
+	"message": "The name 'LoginScreen' isn't a class.\nTry correcting the name to match an existing class.",
 	"source": "dart",
-	"startLineNumber": 40,
-	"startColumn": 51,
-	"endLineNumber": 40,
-	"endColumn": 66
-},{
-	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "uri_does_not_exist",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/uri_does_not_exist",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "Target of URI doesn't exist: 'core/routes/app_router.dart'.\nTry creating the file referenced by the URI, or try using a URI for a file that does exist.",
-	"source": "dart",
-	"startLineNumber": 4,
-	"startColumn": 8,
-	"endLineNumber": 4,
-	"endColumn": 37
-},{
-	"resource": "/c:/APp Projects/flutter-mkd/lib/main.dart",
-	"owner": "_generated_diagnostic_collection_name_#2",
-	"code": {
-		"value": "undefined_identifier",
-		"target": {
-			"$mid": 1,
-			"path": "/diagnostics/undefined_identifier",
-			"scheme": "https",
-			"authority": "dart.dev"
-		}
-	},
-	"severity": 8,
-	"message": "Undefined name 'AppRouter'.\nTry correcting the name to one that is defined, or defining the name.",
-	"source": "dart",
-	"startLineNumber": 33,
-	"startColumn": 24,
-	"endLineNumber": 33,
-	"endColumn": 33
+	"startLineNumber": 35,
+	"startColumn": 19,
+	"endLineNumber": 35,
+	"endColumn": 30
 }]
 
 ├───.dart_tool

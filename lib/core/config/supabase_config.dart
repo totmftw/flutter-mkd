@@ -1,34 +1,44 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-
-
-class SupabaseConfig {
-  static final supabase = Supabase.instance.client;
-}
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SupabaseConfig {
+  static final SupabaseClient client = Supabase.instance.client;
+  
   // Private constructor to prevent instantiation
-  SupabaseConfig._();
-  
-  // Static constants for configuration
-  static const String supabaseUrl = String.fromEnvironment(
-    'SUPABASE_URL',
-    defaultValue: 'your-supabase-url',
-  );
-  
-  static const String supabaseAnonKey = String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
-    defaultValue: 'your-supabase-anon-key',
-  );
+  const SupabaseConfig._();
 
-  // Initialize Supabase client
+  // Database table names as constants
+  static const String usersTable = 'users';
+  static const String postsTable = 'posts';
+  static const String commentsTable = 'comments';
+  static const String likesTable = 'likes';
+  static const String followersTable = 'followers';
+
+  // Initialize Supabase with environment variables
   static Future<void> initialize() async {
     await Supabase.initialize(
-      url: supabaseUrl,
-      anonKey: supabaseAnonKey,
-      debug: false, // Set to true for development
+      url: const String.fromEnvironment('SUPABASE_URL'),
+      anonKey: const String.fromEnvironment('SUPABASE_ANON_KEY'),
+      debug: false,
     );
   }
 
-  // Getter for Supabase client instance
-  static SupabaseClient get client => Supabase.instance.client;
+  // Auth helper methods
+  static User? get currentUser => client.auth.currentUser;
+  
+  static Stream<AuthState> get authStateChanges => 
+      client.auth.onAuthStateChange;
+
+  // Database helper methods
+  static Future<Map<String, dynamic>> getUserData(String userId) async {
+    return await client
+        .from(usersTable)
+        .select()
+        .eq('id', userId)
+        .single();
+  }
 }
+
+final authStateProvider = StreamProvider.autoDispose((ref) {
+  return SupabaseConfig.client.auth.onAuthStateChange.map((event) => event.session);
+});

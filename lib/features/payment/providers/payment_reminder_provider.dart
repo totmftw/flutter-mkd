@@ -1,10 +1,10 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/riverpod.dart' show AsyncValue;
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide Provider;
+import 'package:riverpod/riverpod.dart' as riverpod;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../services/payment_reminder_service.dart';
 
-final paymentReminderServiceProvider = Provider<PaymentReminderService>((ref) {
+final paymentReminderServiceProvider = riverpod.Provider<PaymentReminderService>((ref) {
   return PaymentReminderService(client: Supabase.instance.client);
 });
 
@@ -16,10 +16,10 @@ final paymentReminderControllerProvider = StateNotifierProvider<PaymentReminderC
 class PaymentReminderController extends StateNotifier<AsyncValue<void>> {
   final PaymentReminderService _service;
 
-  PaymentReminderController(this._service) : super(AsyncValue.data(null));
+  PaymentReminderController(this._service) : super(const AsyncValue.data(null));
 
   Future<void> checkAndSendReminders() async {
-    state = AsyncValue.loading();
+    state = const AsyncValue.loading();
     try {
       // Fetch pending invoices
       final pendingInvoices = await _fetchPendingInvoices();
@@ -34,7 +34,7 @@ class PaymentReminderController extends StateNotifier<AsyncValue<void>> {
         );
       }
       
-      state = AsyncValue.data(null);
+      state = const AsyncValue.data(null);
     } catch (e, stackTrace) {
       state = AsyncValue.error(e, stackTrace);
     }

@@ -9,7 +9,7 @@ void main() {
     });
 
     test('parseDate should correctly parse valid date string', () {
-      final dateStr = '15-01-2024';
+      const dateStr = '15-01-2024';
       final parsed = DateFormatter.parseDate(dateStr);
       expect(parsed, isNotNull);
       expect(parsed?.day, equals(15));

@@ -12,7 +12,7 @@ void main() async {
   // Set up logging
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((record) {
-    print('${record.level.name}: ${record.time}: ${record.message}');
+    Logger('MainApp').info('${record.level.name}: ${record.time}: ${record.message}');
   });
 
   final logger = Logger('MainApp');
@@ -125,7 +125,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
-          textScaleFactor: 1.0,
+          textScaler: TextScaler.linear(MediaQuery.of(context).textScaleFactor),
           boldText: false,
         ),
         child: child!,

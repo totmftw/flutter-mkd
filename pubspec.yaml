@@ -40,17 +40,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
-
+  
+  # Removed font section to use system default font
+  
   assets:
     - assets/
     - assets/images/
     - assets/icons/
-
-  fonts:
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Roboto-Italic.ttf
-          style: italic

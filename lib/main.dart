@@ -19,6 +19,7 @@ void main() async {
 
   try {
     WidgetsFlutterBinding.ensureInitialized();
+    logger.info('WidgetsFlutterBinding initialized');
 
     // Initialize Supabase
     await Supabase.initialize(
@@ -28,6 +29,7 @@ void main() async {
         defaultValue: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJraGZwamNrb3pnb3djZmNtYmppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczNjU1NDUsImV4cCI6MjA1Mjk0MTU0NX0.yNcAVIKFYNCsm-fuYEGayim8x4qQpnBnJUMIIdR_LGE'),
       debug: true,
     );
+    logger.info('Supabase initialized');
 
     // Set global error handler
     ErrorWidget.builder = (FlutterErrorDetails details) {
@@ -40,6 +42,7 @@ void main() async {
         child: MyApp(),
       ),
     );
+    logger.info('App started successfully');
   } catch (e, stackTrace) {
     logger.severe('Fatal error during app initialization', e, stackTrace);
     runApp(ErrorApp(error: e, stackTrace: stackTrace));
